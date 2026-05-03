@@ -1,0 +1,132 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - generic:
+      - button "[ Enter ]":
+        - generic: "["
+        - generic: Enter
+        - generic: "]"
+  - generic [ref=e9]:
+    - generic:
+      - generic:
+        - generic:
+          - generic: Scroll for more
+      - generic:
+        - generic:
+          - generic: Scroll for more
+    - main [ref=e10]:
+      - generic [ref=e11]:
+        - generic:
+          - generic:
+            - generic:
+              - paragraph: We see no limit to the potential of emerging technology. We blend artistry with innovation, and create new worlds where dreams know no bounds.
+              - paragraph: Come with us into the emerging world of immersive storytelling.
+        - paragraph [ref=e16]:
+          - generic [ref=e17]:
+            - generic [ref=e18]: With
+            - generic [ref=e19]: the
+            - generic [ref=e20]: help
+            - generic [ref=e21]: of
+          - generic [ref=e22]:
+            - generic [ref=e23]: technology,
+            - generic [ref=e24]: you
+            - generic [ref=e25]: can
+          - generic [ref=e26]:
+            - generic [ref=e27]: now
+            - generic [ref=e28]: step
+            - generic [ref=e29]: right
+            - generic [ref=e30]: into
+          - generic [ref=e32]: the stories.
+          - generic [ref=e33]:
+            - generic [ref=e34]: The
+            - generic [ref=e35]: emotional
+            - generic [ref=e36]: impact
+          - generic [ref=e38]: is off the scale.
+          - generic [ref=e39]:
+            - generic [ref=e40]: Tell
+            - generic [ref=e41]: stories
+            - generic [ref=e42]: people
+          - generic [ref=e43]:
+            - generic [ref=e44]: love, share
+            - generic [ref=e45]: "&"
+          - generic [ref=e47]: remember.
+        - generic [ref=e50]:
+          - paragraph [ref=e51]: Scratch around
+          - img [ref=e54]
+          - paragraph [ref=e57]: We already make great content. This is the next level of creative expression - we won't let you be left behind.
+        - generic [ref=e58]:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - heading "Our services" [level=2]
+                - generic:
+                  - generic:
+                    - generic: "00"
+                    - generic:
+                      - generic: "1"
+                      - generic: "2"
+                      - generic: "3"
+                  - generic: Ideate
+                - paragraph:
+                  - text: We
+                  - text: define objectives
+                  - text: share ideas
+                  - text: explore the possibilities with tech
+                  - text: and agree a concept
+                - list
+                - generic:
+                  - button "Prev" [ref=e59] [cursor=pointer]
+                  - generic: /
+                  - button "Next" [ref=e60] [cursor=pointer]
+        - generic [ref=e61]:
+          - paragraph [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]: Creating
+              - generic [ref=e67]: new
+            - generic [ref=e68]:
+              - generic [ref=e69]: physical
+              - generic [ref=e70]: and
+            - generic [ref=e72]: virtual
+            - generic [ref=e73]:
+              - generic [ref=e74]: worlds,
+              - generic [ref=e75]: where
+            - generic [ref=e77]: creativity
+            - generic [ref=e78]:
+              - generic [ref=e79]: knows
+              - generic [ref=e80]: "no"
+            - generic [ref=e82]: bounds.
+          - paragraph [ref=e86]: We help our clients stay bold, and form strong, enduring connections with their customers.
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - text: Alex Harman
+            - text: CEO
+          - generic:
+            - text: Jerome Botbol
+            - text: Head of Immersive
+          - generic:
+            - button "Close the contact overlay": Close
+          - generic:
+            - paragraph: London
+            - paragraph: +44 (0)20 8133 5633
+            - link "info@kodemedia.com":
+              - /url: mailto:info@kodemedia.com
+            - paragraph:
+              - text: 41 Mitchell Street
+              - text: London EC1V 3QD
+              - text: United Kingdom
+          - paragraph: 2025 KODE / All rights reserved
+          - generic:
+            - link "Kode":
+              - /url: https://kodemedia.com
+            - link "Let's Connect":
+              - /url: mailto:jerome.botbol@kodemedia.com
+          - generic:
+            - paragraph: Sign up to be part of our growing tech community
+            - generic:
+              - generic:
+                - generic: "["
+                - textbox "Enter your email address"
+                - generic: "]"
+          - img

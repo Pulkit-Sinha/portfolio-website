@@ -1,0 +1,55 @@
+/* ============================================
+   KATANA CANVAS + SLASH OVERLAY
+   ============================================ */
+
+#katana-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;          /* behind loader text and hero */
+  pointer-events: none;
+}
+
+/* ============================================
+   SLASH OVERLAY — vertical screen split
+   ============================================ */
+
+#slash-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  display: none;
+}
+
+/* Left and right halves each cover exactly half the screen */
+.slash-half {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  background: var(--color-accent); /* #FF1919 */
+}
+
+#slash-left  { left: 0; }
+#slash-right { right: 0; }
+
+/* Seam — vertical bright line at the cut */
+#slash-seam {
+  position: absolute;
+  left: 50%;
+  top: -5%;
+  bottom: -5%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.9) 15%,
+    white 50%,
+    rgba(255, 255, 255, 0.9) 85%,
+    transparent 100%
+  );
+  opacity: 0;
+}

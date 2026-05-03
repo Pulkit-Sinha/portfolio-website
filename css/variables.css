@@ -1,0 +1,43 @@
+/* ============================================
+   DESIGN TOKENS — Pulkit Sinha Portfolio
+   ============================================ */
+
+:root {
+  /* Colors — Utopia Tokyo palette */
+  --color-bg:           #050508;
+  --color-bg-elevated:  #0f0f14;
+  --color-text:         #EBE8E0;
+  --color-text-muted:   #6B6860;
+  --color-accent:       #FF1919;
+  --color-accent-dim:   rgba(255, 25, 25, 0.15);
+  --color-cyan:         #00F3FF;
+  --color-border:       #1C1C22;
+
+  /* Fonts */
+  --font-display: 'Chakra Petch', 'Arial', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+  --font-pixel:   'Zpix', monospace;
+
+  /* Type scale */
+  --text-hero:    clamp(4rem, 13vw, 12rem);
+  --text-display: clamp(2.5rem, 5vw, 5rem);
+  --text-heading: clamp(1.5rem, 2.5vw, 2.5rem);
+  --text-body:    clamp(0.9rem, 1.1vw, 1.1rem);
+  --text-label:   0.7rem;
+  --text-caption: 0.6rem;
+
+  /* Easing — Utopia Tokyo */
+  --ease-out:     cubic-bezier(0.625, 0.05, 0, 1);
+  --ease-in-out:  cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* Spacing */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  8rem;
+  --space-2xl: 12rem;
+
+  /* Layout */
+  --gutter: clamp(1.5rem, 4vw, 4rem);
+}

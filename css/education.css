@@ -1,0 +1,461 @@
+/* ============================================
+   EDUCATION · SKILLS · PUBLICATIONS SECTION
+   ============================================ */
+
+#education {
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  background: var(--color-bg);
+  position: relative;
+  transition: background-color 0.8s var(--ease-in-out);
+}
+
+/* ── Inverted color scheme ──────────────── */
+
+#education.is-inverted {
+  background: #F5F2EB;
+}
+
+#education.is-inverted .edu-left {
+  border-right-color: #D0CCC2;
+}
+
+#education.is-inverted .edu-institution {
+  border-top-color: #D0CCC2;
+}
+
+#education.is-inverted .edu-school-name,
+#education.is-inverted .edu-degree,
+#education.is-inverted .edu-inst-name,
+#education.is-inverted .edu-inst-meta {
+  color: #0A0A0E;
+}
+
+#education.is-inverted .edu-achievements li {
+  color: #5A5850;
+}
+
+#education.is-inverted .skills-section {
+  border-bottom-color: #D0CCC2;
+}
+
+#education.is-inverted .skills-group-title {
+  color: #5A5850;
+}
+
+#education.is-inverted .skill-tag {
+  color: #0A0A0E;
+  border-color: #C0BDB6;
+}
+
+#education.is-inverted .pub-entry {
+  border-top-color: #D0CCC2;
+}
+
+#education.is-inverted .pub-title {
+  color: #0A0A0E;
+}
+
+#education.is-inverted .pub-meta {
+  color: #5A5850;
+}
+
+/* ── Left: Education (70%) ──────────────── */
+
+.edu-left {
+  width: 70%;
+  border-right: 1px solid var(--color-border);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  padding-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.8s var(--ease-in-out);
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  padding-bottom: var(--space-md);
+}
+
+.edu-label {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.edu-sublabel {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+/* ── Institution rows ───────────────────── */
+
+.edu-institution {
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0;
+  position: relative;
+  cursor: default;
+  transition: border-color 0.8s var(--ease-in-out);
+}
+
+/* Red + grid overlay — fades in on hover */
+.edu-institution::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * var(--gutter));
+  right: calc(-1 * var(--gutter));
+  background-color: var(--color-accent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='65' height='65'%3E%3Cline x1='32' y1='27' x2='32' y2='37' stroke='black' stroke-width='0.8' opacity='0.12'/%3E%3Cline x1='27' y1='32' x2='37' y2='32' stroke='black' stroke-width='0.8' opacity='0.12'/%3E%3C/svg%3E");
+  background-size: 65px 65px;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.edu-institution:hover::before {
+  opacity: 1;
+}
+
+.edu-institution:hover {
+  border-top-color: var(--color-accent);
+}
+
+.edu-institution:hover + .edu-institution {
+  border-top-color: var(--color-cyan);
+}
+
+/* Lift all direct content above the overlay */
+.edu-institution > * {
+  position: relative;
+  z-index: 1;
+}
+
+.edu-institution--bits {
+  flex: 5;   /* 50% */
+}
+
+.edu-institution:not(.edu-institution--bits):nth-child(3) {
+  flex: 2.5;   /* 25% — DPS Vasant Kunj */
+}
+
+.edu-institution:not(.edu-institution--bits):nth-child(4) {
+  flex: 2.5;   /* 25% — DPS Gurgaon */
+}
+
+.edu-inst-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+/* BITS school name */
+
+.edu-school-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 7rem);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.edu-degree {
+  font-family: var(--font-mono);
+  font-size: 1.275rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.edu-institution:hover .edu-school-name,
+.edu-institution:hover .edu-degree,
+.edu-institution:hover .edu-inst-name,
+.edu-institution:hover .edu-inst-meta {
+  color: #000;
+}
+
+/* Secondary school rows */
+
+.edu-inst-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2vw, 2rem);
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  line-height: 1.1;
+  transition: color 0.2s ease;
+}
+
+.edu-inst-meta {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.edu-institution--secondary {
+  cursor: default;
+}
+
+/* Achievements */
+
+.edu-achievements {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+.edu-achievements li {
+  font-family: var(--font-mono);
+  font-size: 1.275rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  padding-left: 1.4em;
+  position: relative;
+  line-height: 1.75;
+  transition: color 0.2s ease;
+}
+
+.edu-institution:hover .edu-achievements li {
+  color: #000;
+}
+
+.edu-achievements li .bullet {
+  position: absolute;
+  left: 0;
+  top: 0.875em;           /* GSAP y:'-50%' lands the centre here = first-line midpoint */
+  width: 1.2em;
+  height: 1.2em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  font-size: 0.8em;
+  transform-origin: center center;
+  transition: color 0.2s ease;
+}
+
+.edu-achievements li .bullet svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  display: block;
+  fill: currentColor;
+  stroke: none;
+}
+
+.edu-institution:hover .edu-achievements li .bullet {
+  color: #000;
+}
+
+/* ── Right column (30%) ─────────────────── */
+
+.edu-right {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Skills (top ~68% of right) ─────────── */
+
+.skills-section {
+  flex: 3;
+  padding: var(--space-lg) var(--gutter) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.8s var(--ease-in-out);
+}
+
+.skills-section::before,
+.pub-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-accent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='65' height='65'%3E%3Cline x1='32' y1='27' x2='32' y2='37' stroke='black' stroke-width='0.8' opacity='0.12'/%3E%3Cline x1='27' y1='32' x2='37' y2='32' stroke='black' stroke-width='0.8' opacity='0.12'/%3E%3C/svg%3E");
+  background-size: 65px 65px;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-out);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skills-section:hover::before,
+.pub-section:hover::before {
+  opacity: 1;
+}
+
+.skills-section > *,
+.pub-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.skills-section:hover .skills-label,
+.skills-section:hover .skills-group-title {
+  color: #000;
+}
+
+.skills-section:hover .skill-tag {
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
+.skills-label {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skills-group-title {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 0.3rem 0.7rem;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.skill-tag:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ── Publications (bottom ~32% of right) ── */
+
+.pub-section {
+  flex: 2;
+  padding: var(--space-md) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.pub-section:hover .pub-label,
+.pub-section:hover .pub-title,
+.pub-section:hover .pub-meta {
+  color: #000;
+}
+
+.pub-section:hover a.pub-link {
+  color: #000;
+}
+
+.pub-label {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.pub-entries {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+  justify-content: center;
+}
+
+.pub-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.7rem;
+  transition: border-color 0.8s var(--ease-in-out);
+}
+
+a.pub-link {
+  color: var(--color-cyan);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: opacity 0.2s ease;
+  display: inline;
+}
+
+a.pub-link:hover {
+  opacity: 0.7;
+}
+
+.pub-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.275rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.pub-meta {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}

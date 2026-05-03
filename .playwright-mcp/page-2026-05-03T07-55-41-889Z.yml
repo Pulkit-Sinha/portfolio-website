@@ -1,0 +1,201 @@
+- generic [active] [ref=e1]:
+  - status "Loading" [ref=e2]
+  - main [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: PS / PORTFOLIO
+        - generic [ref=e7]: 12.9716° N / 77.5946° E
+        - generic [ref=e8]: 13:25:41.868
+      - generic [ref=e9]:
+        - paragraph [ref=e10]: HEAD OF SOFTWARE / ARMATRIX
+        - generic "Pulkit Sinha" [ref=e11]:
+          - generic [ref=e12]: PULKIT
+          - generic [ref=e13]: SINHA
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]: ENGINEER.
+          - generic [ref=e18]: BUILDER.
+          - generic [ref=e19]: CREATOR.
+        - generic "Background" [ref=e20]:
+          - generic [ref=e21]: ARMATRIX
+          - generic [ref=e22]: ALPHASENSE
+          - generic [ref=e23]: AMAZON
+          - generic [ref=e24]: BITS PILANI
+      - generic [ref=e26]: BENGALURU, IN — 2026
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: 02 / EXPERIENCE
+        - generic [ref=e31]: MY LIFE'S WORK (SO FAR)
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e36]: "01"
+              - generic [ref=e37]:
+                - generic [ref=e38]: ARMATRIX
+                - generic [ref=e39]: FOUNDING ENGINEER
+            - generic [ref=e40]:
+              - generic [ref=e41]: JAN 2026 — PRESENT
+              - button "Expand Armatrix" [ref=e42]: +
+          - generic [ref=e43]:
+            - generic:
+              - paragraph: "Head of Software:"
+              - list:
+                - listitem [ref=e44]: — Leading development of customer‑facing software — an interface to control robot arms for inspection, painting and welding. Stores task history with full playback capability.
+                - listitem [ref=e45]:
+                  - text: — Leading development of the
+                  - link "company website" [ref=e46]:
+                    - /url: https://armatrix.in
+                  - text: end-to-end.
+            - generic [ref=e47]:
+              - generic [ref=e48]: NEXT.JS
+              - generic [ref=e49]: PYTHON
+              - generic [ref=e50]: THREE.JS
+              - generic [ref=e51]: POSTGRESQL
+              - generic [ref=e52]: GCP
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - generic [ref=e56]: "02"
+              - generic [ref=e57]:
+                - generic [ref=e58]: ALPHASENSE
+                - generic [ref=e59]: SOFTWARE DEVELOPER
+            - generic [ref=e60]:
+              - generic [ref=e61]: JUL 2024 — DEC 2025
+              - button "Expand AlphaSense" [ref=e62]: +
+          - generic [ref=e63]:
+            - generic:
+              - paragraph: "Transcripts team (built a 0 to 1 solution for providing real time transcripts of live-streamed third party events):"
+              - list:
+                - listitem [ref=e64]: — Designed an AI-powered deduplication pipeline using LLMs (AWS Bedrock) to intelligently merge duplicate events at scale.
+                - listitem [ref=e65]: — Built LLM-based web scraping pipeline in Python to automatically enrich event metadata.
+                - listitem [ref=e66]: — Built RESTful APIs using Python (FastAPI) serving the analyst portal, handling event lifecycle management end-to-end.
+                - listitem [ref=e67]: — Enforced a locking system to improve efficiency and track performance of analysts.
+            - generic [ref=e68]:
+              - generic [ref=e69]: FASTAPI
+              - generic [ref=e70]: NEXT.JS
+              - generic [ref=e71]: AWS
+              - generic [ref=e72]: LLMs
+              - generic [ref=e73]: KUBERNETES
+              - generic [ref=e74]: DOCKER
+              - generic [ref=e75]: GRAFANA
+              - generic [ref=e76]: MYSQL
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - generic [ref=e80]: "03"
+              - generic [ref=e81]:
+                - generic [ref=e82]: AMAZON
+                - generic [ref=e83]: SDE INTERN
+            - generic [ref=e84]:
+              - generic [ref=e85]: JUL 2023 — DEC 2023
+              - button "Expand Amazon" [ref=e86]: +
+          - generic [ref=e87]:
+            - generic:
+              - paragraph: "Address Authority Service team (responsible for handling customer addresses):"
+              - list:
+                - listitem [ref=e88]: — Rewrote backend data pipeline in Java, switching from immutable RODB to mutable RocksDB (reducing database refresh time by ~75% since we no longer had to generate fresh databases for new input every time).
+                - listitem [ref=e89]: — Rewrote Integration Tests packages and Unit Tests to account for rehauled data workflow (Java, JUnit).
+                - listitem [ref=e90]: — Introduced a new attribute for addresses, Exception Dates, to keep track of places that are open/closed against convention.
+                - listitem [ref=e91]: — Migrated all of team's services to a new data encryption system (reduced seal/unseal latency, more scalable).
+            - generic [ref=e92]:
+              - generic [ref=e93]: JAVA
+              - generic [ref=e94]: AWS
+              - generic [ref=e95]: ROCKSDB
+              - generic [ref=e96]: JUNIT
+    - generic [ref=e97]:
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - generic [ref=e100]: 03 / EDUCATION
+          - generic [ref=e101]: ORIGIN STORY
+        - generic [ref=e102]:
+          - generic [ref=e103]:
+            - heading "BITS PILANI" [level=2] [ref=e104]:
+              - text: BITS
+              - text: PILANI
+            - paragraph [ref=e105]: B.E. COMPUTER SCIENCE · 2024 · 7.51
+          - list [ref=e106]:
+            - listitem [ref=e107]: ✦ JEE ADVANCED AIR 2840
+            - listitem [ref=e108]: ✦ BITSAT 378 / 450
+            - listitem [ref=e109]: ✦ BITS PILANI FOOTBALL TEAM · CENTREBACK
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - generic [ref=e112]: DELHI PUBLIC SCHOOL, VASANT KUNJ
+            - generic [ref=e113]: CLASS XII · CBSE · 96.6%
+          - list [ref=e114]:
+            - listitem [ref=e115]: ✦ 100/100 IN MATHEMATICS
+            - listitem [ref=e116]: ✦ KVPY FELLOWSHIP 2019
+        - generic [ref=e117]:
+          - generic [ref=e118]:
+            - generic [ref=e119]: DELHI PUBLIC SCHOOL, GURGAON
+            - generic [ref=e120]: CLASS X · CBSE · 97.0%
+          - list [ref=e121]:
+            - listitem [ref=e122]: ✦ 99/100 IN ENGLISH & SOCIAL STUDIES
+            - listitem [ref=e123]: ✦ DPS GURGAON FOOTBALL TEAM · CENTREBACK
+      - generic [ref=e124]:
+        - generic [ref=e125]:
+          - generic [ref=e126]: 04 / SKILLS
+          - generic [ref=e127]:
+            - generic [ref=e128]: LANGUAGES
+            - generic [ref=e129]:
+              - generic [ref=e130]: C++
+              - generic [ref=e131]: JAVA
+              - generic [ref=e132]: PYTHON
+              - generic [ref=e133]: SQL
+              - generic [ref=e134]: JAVASCRIPT
+              - generic [ref=e135]: DART
+              - generic [ref=e136]: C
+          - generic [ref=e137]:
+            - generic [ref=e138]: TOOLS & FRAMEWORKS
+            - generic [ref=e139]:
+              - generic [ref=e140]: REACT
+              - generic [ref=e141]: NEXT.JS
+              - generic [ref=e142]: THREE.JS
+              - generic [ref=e143]: FASTAPI
+              - generic [ref=e144]: FLUTTER
+              - generic [ref=e145]: UNITY
+              - generic [ref=e146]: AWS
+              - generic [ref=e147]: GCP
+              - generic [ref=e148]: DOCKER
+              - generic [ref=e149]: KUBERNETES
+              - generic [ref=e150]: MYSQL
+              - generic [ref=e151]: POSTGRESQL
+              - generic [ref=e152]: GRAFANA
+              - generic [ref=e153]: GIT
+        - generic [ref=e154]:
+          - generic [ref=e155]: 05 / PUBLICATIONS
+          - generic [ref=e156]:
+            - generic [ref=e157]:
+              - link "Machine Learning for Education" [ref=e158]:
+                - /url: https://bpbonline.com/collections/machine-learning-ai/products/machine-learning-for-education
+              - generic [ref=e159]: BPB PUBLICATIONS · 2023 · CO-AUTHOR
+            - generic [ref=e160]:
+              - generic [ref=e161]: Blockchain Technology and Applications
+              - generic [ref=e162]: KINDLE · 2022 · CONTRIBUTOR
+    - generic [ref=e163]:
+      - generic [ref=e164]: 06 / CONTACT
+      - generic [ref=e165]:
+        - generic [ref=e166]: LET'S BUILD
+        - generic [ref=e167]: SOMETHING
+      - generic [ref=e170]:
+        - generic [ref=e171]:
+          - generic [ref=e172]:
+            - link "EMAIL aryantopulkit2@gmail.com" [ref=e173]:
+              - /url: mailto:aryantopulkit2@gmail.com
+              - generic [ref=e174]: EMAIL
+              - generic [ref=e175]: aryantopulkit2@gmail.com
+            - link "PHONE +91 93546 94299" [ref=e176]:
+              - /url: tel:+919354694299
+              - generic [ref=e177]: PHONE
+              - generic [ref=e178]: +91 93546 94299
+          - generic [ref=e179]:
+            - link "GitHub" [ref=e180]:
+              - /url: https://github.com/pulkit-sinha
+              - img [ref=e181]
+            - link "LinkedIn" [ref=e183]:
+              - /url: https://www.linkedin.com/in/pulkit-sinha-803907200/
+              - img [ref=e184]
+            - link "Steam" [ref=e186]:
+              - /url: https://steamcommunity.com/profiles/76561198445064925/
+              - img [ref=e187]
+        - generic [ref=e190]: Built with ❤️ and Claude

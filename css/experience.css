@@ -1,0 +1,286 @@
+/* ============================================
+   EXPERIENCE SECTION
+   ============================================ */
+
+#experience {
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='65' height='65'%3E%3Cline x1='32' y1='27' x2='32' y2='37' stroke='%23FF1919' stroke-width='0.8' opacity='0.12'/%3E%3Cline x1='27' y1='32' x2='37' y2='32' stroke='%23FF1919' stroke-width='0.8' opacity='0.12'/%3E%3C/svg%3E");
+  background-size: 65px 65px;
+  padding: var(--space-lg) var(--gutter) 0;
+  position: relative;
+  overflow: hidden; /* clips negative-margin rows to viewport edges */
+}
+
+/* ── Header ─────────────────────────────── */
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-md);
+  flex-shrink: 0;
+}
+
+.exp-label {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.exp-sublabel {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+/* ── List container ─────────────────────── */
+
+.exp-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* overflow moved to #experience so row backgrounds reach viewport edges */
+}
+
+/* ── Row ────────────────────────────────── */
+
+.exp-row {
+  flex: none;          /* JS controls height */
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.3s ease;
+  /* Stretch to viewport edges, compensating for #experience padding */
+  margin-left: calc(-1 * var(--gutter));
+  margin-right: calc(-1 * var(--gutter));
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.exp-row:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.exp-row:hover {
+  background: rgba(255, 25, 25, 0.06);
+  z-index: 16; /* above mask-canvas (z-index:15) so tint covers full row */
+}
+
+.exp-row.is-open {
+  position: relative;
+  z-index: 20;
+  background: rgba(5, 5, 8, 0.72);
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+}
+
+/* ── Row header ─────────────────────────── */
+
+.exp-row-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0.6rem 1.2rem 0;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.exp-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+}
+
+.exp-left-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.exp-num {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  width: 2.5rem;
+}
+
+.exp-company {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 2.8vw, 3.2rem);
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.exp-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.exp-dates {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.exp-role {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.exp-row:hover .exp-company,
+.exp-row:hover .exp-dates,
+.exp-row:hover .exp-role {
+  color: var(--color-accent);
+}
+
+/* ── Toggle button ──────────────────────── */
+
+.exp-toggle {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.35s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+.exp-toggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.exp-row.is-open .exp-toggle {
+  transform: rotate(45deg);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ── Details panel ──────────────────────── */
+
+.exp-details {
+  flex: 1;
+  display: flex;
+  gap: 3rem;
+  padding-bottom: 1.8rem;
+  padding-left: calc(2.5rem + 1.4rem); /* matches exp-num width + exp-left gap */
+  padding-right: 0.6rem;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.exp-bullets {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.exp-intro {
+  font-family: var(--font-mono);
+  font-size: 1.275rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5rem;
+  overflow-wrap: break-word;
+}
+
+.exp-bullets ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.exp-bullets li {
+  font-family: var(--font-mono);
+  font-size: 1.275rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  letter-spacing: 0.03em;
+  padding-left: 1.2em;
+  position: relative;
+  overflow-wrap: break-word;
+}
+
+.exp-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.exp-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: flex-start;
+  flex-shrink: 0;
+  width: clamp(14rem, 22%, 22rem);
+  border-left: 1px solid var(--color-border);
+  padding-left: 2rem;
+}
+
+.exp-pill {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 0.3rem 0.7rem;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.exp-pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.exp-link {
+  color: var(--color-cyan);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: opacity 0.2s ease;
+}
+
+.exp-link:hover {
+  opacity: 0.7;
+}
+

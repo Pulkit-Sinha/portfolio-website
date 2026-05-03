@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulkit Sinha — Engineer</title>
+
+  <!-- Import map — tells browser where to resolve bare 'three' specifiers -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <!-- IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+  <link rel="stylesheet" href="css/slash.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/experience.css" />
+  <link rel="stylesheet" href="css/education.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- GRAIN OVERLAY -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- THREE.JS KATANA CANVAS — sits above everything, transparent bg -->
+  <canvas id="katana-canvas" aria-hidden="true"></canvas>
+
+  <!-- SLASH OVERLAY — diagonal screen split, shown at slash moment -->
+  <div id="slash-overlay" aria-hidden="true">
+    <div class="slash-half" id="slash-left"></div>
+    <div class="slash-half" id="slash-right"></div>
+    <div id="slash-seam"></div>
+  </div>
+
+  <!-- ==================== LOADER ==================== -->
+  <div id="loader" aria-label="Loading" role="status"></div>
+
+  <!-- MASK CANVAS — fixed, scrolls in after hero -->
+  <canvas id="mask-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==================== HERO ==================== -->
+  <main id="main" style="opacity:0; position:relative;">
+    <section id="hero">
+
+      <!-- HUD bar -->
+      <div class="hero-hud">
+        <span>PS / PORTFOLIO</span>
+        <span>12.9716° N &nbsp;&nbsp;/&nbsp;&nbsp; 77.5946° E</span>
+        <span id="hud-clock"></span>
+      </div>
+
+      <!-- Main content — name only -->
+      <div class="hero-content">
+        <p class="hero-pre">HEAD OF SOFTWARE &nbsp;/&nbsp; ARMATRIX</p>
+
+        <div class="hero-name" aria-label="Pulkit Sinha">
+          <span class="hero-name-line" id="hero-pulkit">PULKIT</span>
+          <span class="hero-name-line hero-name-outline" id="hero-sinha">SINHA</span>
+        </div>
+        <div class="hero-name-rule" aria-hidden="true"></div>
+      </div>
+
+      <!-- Bottom-right info block -->
+      <div class="hero-info">
+        <div class="hero-tagline" aria-hidden="true">
+          <span class="hero-tagline-line" data-speed="0.7">ENGINEER.</span>
+          <span class="hero-tagline-line" data-speed="1.0">BUILDER.</span>
+          <span class="hero-tagline-line" data-speed="1.3">CREATOR.</span>
+        </div>
+
+        <div class="hero-bio" aria-label="Background">
+          <span data-speed="1.4">ARMATRIX</span>
+          <span data-speed="1.1">ALPHASENSE</span>
+          <span data-speed="0.9">AMAZON</span>
+          <span data-speed="0.7">BITS PILANI</span>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <span class="hero-location">BENGALURU, IN — 2026</span>
+      </div>
+
+      <div class="hero-grid-bl" aria-hidden="true"></div>
+      <div class="hero-divider" aria-hidden="true"></div>
+    </section>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section id="experience">
+
+      <div class="exp-header">
+        <span class="exp-label">02 / EXPERIENCE</span>
+        <span class="exp-sublabel">MY LIFE'S WORK (SO FAR)</span>
+      </div>
+
+      <div class="exp-list">
+
+        <!-- 01 — Armatrix -->
+        <div class="exp-row">
+          <div class="exp-row-main">
+            <div class="exp-left">
+              <span class="exp-num">01</span>
+              <div class="exp-left-text">
+                <span class="exp-company">ARMATRIX</span>
+                <span class="exp-role">FOUNDING ENGINEER</span>
+              </div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-dates">JAN 2026 — PRESENT</span>
+              <button class="exp-toggle" aria-label="Expand Armatrix">+</button>
+            </div>
+          </div>
+          <div class="exp-details">
+            <div class="exp-bullets">
+              <p class="exp-intro">Head of Software:</p>
+              <ul>
+                <li>Leading development of customer&#8209;facing software — an interface to control robot arms for inspection, painting and welding. Stores task history with full playback capability.</li>
+                <li>Leading development of the <a href="https://armatrix.in" target="_blank" rel="noopener" class="exp-link">company website</a> end-to-end.</li>
+              </ul>
+            </div>
+            <div class="exp-pills">
+              <span class="exp-pill">NEXT.JS</span>
+              <span class="exp-pill">PYTHON</span>
+              <span class="exp-pill">THREE.JS</span>
+              <span class="exp-pill">POSTGRESQL</span>
+              <span class="exp-pill">GCP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 — AlphaSense -->
+        <div class="exp-row">
+          <div class="exp-row-main">
+            <div class="exp-left">
+              <span class="exp-num">02</span>
+              <div class="exp-left-text">
+                <span class="exp-company">ALPHASENSE</span>
+                <span class="exp-role">SOFTWARE DEVELOPER</span>
+              </div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-dates">JUL 2024 — DEC 2025</span>
+              <button class="exp-toggle" aria-label="Expand AlphaSense">+</button>
+            </div>
+          </div>
+          <div class="exp-details">
+            <div class="exp-bullets">
+              <p class="exp-intro">Transcripts team (built a 0 to 1 solution for providing real time transcripts of live-streamed third party events):</p>
+              <ul>
+                <li>Designed an AI-powered deduplication pipeline using LLMs (AWS Bedrock) to intelligently merge duplicate events at scale.</li>
+                <li>Built LLM-based web scraping pipeline in Python to automatically enrich event metadata.</li>
+                <li>Built RESTful APIs using Python (FastAPI) serving the analyst portal, handling event lifecycle management end-to-end.</li>
+                <li>Enforced a locking system to improve efficiency and track performance of analysts.</li>
+              </ul>
+            </div>
+            <div class="exp-pills">
+              <span class="exp-pill">FASTAPI</span>
+              <span class="exp-pill">NEXT.JS</span>
+              <span class="exp-pill">AWS</span>
+              <span class="exp-pill">LLMs</span>
+              <span class="exp-pill">KUBERNETES</span>
+              <span class="exp-pill">DOCKER</span>
+              <span class="exp-pill">GRAFANA</span>
+              <span class="exp-pill">MYSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 — Amazon -->
+        <div class="exp-row">
+          <div class="exp-row-main">
+            <div class="exp-left">
+              <span class="exp-num">03</span>
+              <div class="exp-left-text">
+                <span class="exp-company">AMAZON</span>
+                <span class="exp-role">SDE INTERN</span>
+              </div>
+            </div>
+            <div class="exp-right">
+              <span class="exp-dates">JUL 2023 — DEC 2023</span>
+              <button class="exp-toggle" aria-label="Expand Amazon">+</button>
+            </div>
+          </div>
+          <div class="exp-details">
+            <div class="exp-bullets">
+              <p class="exp-intro">Address Authority Service team (responsible for handling customer addresses):</p>
+              <ul>
+                <li>Rewrote backend data pipeline in Java, switching from immutable RODB to mutable RocksDB (reducing database refresh time by ~75% since we no longer had to generate fresh databases for new input every time).</li>
+                <li>Rewrote Integration Tests packages and Unit Tests to account for rehauled data workflow (Java, JUnit).</li>
+                <li>Introduced a new attribute for addresses, Exception Dates, to keep track of places that are open/closed against convention.</li>
+                <li>Migrated all of team's services to a new data encryption system (reduced seal/unseal latency, more scalable).</li>
+              </ul>
+            </div>
+            <div class="exp-pills">
+              <span class="exp-pill">JAVA</span>
+              <span class="exp-pill">AWS</span>
+              <span class="exp-pill">ROCKSDB</span>
+              <span class="exp-pill">JUNIT</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== EDUCATION / SKILLS / PUBLICATIONS ==================== -->
+    <section id="education">
+
+      <!-- Left 70%: Education -->
+      <div class="edu-left">
+        <div class="edu-header">
+          <span class="edu-label">03 / EDUCATION</span>
+          <span class="edu-sublabel">ORIGIN STORY</span>
+        </div>
+
+        <!-- BITS PILANI — 50% -->
+        <div class="edu-institution edu-institution--bits">
+          <div class="edu-inst-top">
+            <h2 class="edu-school-name">BITS<br>PILANI</h2>
+            <p class="edu-degree">B.E. COMPUTER SCIENCE &nbsp;·&nbsp; 2024<span class="desktop-sep">&nbsp;·&nbsp;</span><br class="mobile-br">7.51</p>
+          </div>
+          <ul class="edu-achievements">
+            <li><span class="bullet"><i data-lucide="sparkle" aria-hidden="true"></i></span>JEE ADVANCED AIR 2840</li>
+            <li><span class="bullet"><i data-lucide="sparkle" aria-hidden="true"></i></span>BITSAT 378 / 450</li>
+            <li><span class="bullet"><i data-lucide="sparkle" aria-hidden="true"></i></span>BITS PILANI FOOTBALL TEAM &nbsp;·&nbsp; CENTREBACK</li>
+          </ul>
+        </div>
+
+        <!-- DPS Vasant Kunj — 30% -->
+        <div class="edu-institution edu-institution--secondary">
+          <div class="edu-inst-top">
+            <span class="edu-inst-name">DELHI PUBLIC SCHOOL, VASANT KUNJ</span>
+            <span class="edu-inst-meta">CLASS XII &nbsp;·&nbsp; CBSE<span class="desktop-sep">&nbsp;·&nbsp;</span><br class="mobile-br">96.6%</span>
+          </div>
+          <ul class="edu-achievements">
+            <li><span class="bullet"><i data-lucide="sparkle" aria-hidden="true"></i></span>100/100 IN MATHEMATICS</li>
+            <li><span class="bullet"><i data-lucide="sparkle" aria-hidden="true"></i></span>KVPY FELLOWSHIP 2019</li>
+          </ul>
+        </div>
+
+        <!-- DPS Gurgaon — 20% -->
+        <div class="edu-institution edu-institution--secondary">
+          <div class="edu-inst-top">
+            <span class="edu-inst-name">DELHI PUBLIC SCHOOL, GURGAON</span>
+            <span class="edu-inst-meta">CLASS X &nbsp;·&nbsp; CBSE<span class="desktop-sep">&nbsp;·&nbsp;</span><br class="mobile-br">97.0%</span>
+          </div>
+          <ul class="edu-achievements">
+            <li><span class="bullet"><i data-lucide="sparkle" aria-hidden="true"></i></span>99/100 IN ENGLISH &amp; SOCIAL STUDIES</li>
+            <li><span class="bullet"><i data-lucide="sparkle" aria-hidden="true"></i></span>DPS GURGAON FOOTBALL TEAM &nbsp;·&nbsp; CENTREBACK</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right 30%: Skills + Publications -->
+      <div class="edu-right">
+
+        <!-- Skills -->
+        <div class="skills-section">
+          <span class="skills-label">04 / SKILLS</span>
+
+          <div class="skills-group">
+            <span class="skills-group-title">LANGUAGES</span>
+            <div class="skills-tags">
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">JAVA</span>
+              <span class="skill-tag">PYTHON</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">JAVASCRIPT</span>
+              <span class="skill-tag">DART</span>
+              <span class="skill-tag">C</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <span class="skills-group-title">TOOLS &amp; FRAMEWORKS</span>
+            <div class="skills-tags">
+              <span class="skill-tag">REACT</span>
+              <span class="skill-tag">NEXT.JS</span>
+              <span class="skill-tag">THREE.JS</span>
+              <span class="skill-tag">FASTAPI</span>
+              <span class="skill-tag">FLUTTER</span>
+              <span class="skill-tag">UNITY</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">GCP</span>
+              <span class="skill-tag">DOCKER</span>
+              <span class="skill-tag">KUBERNETES</span>
+              <span class="skill-tag">MYSQL</span>
+              <span class="skill-tag">POSTGRESQL</span>
+              <span class="skill-tag">GRAFANA</span>
+              <span class="skill-tag">GIT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publications -->
+        <div class="pub-section">
+          <span class="pub-label">05 / PUBLICATIONS</span>
+          <div class="pub-entries">
+            <div class="pub-entry">
+              <a class="pub-title pub-link" href="https://bpbonline.com/collections/machine-learning-ai/products/machine-learning-for-education" target="_blank" rel="noopener">Machine Learning for Education</a>
+              <span class="pub-meta">BPB PUBLICATIONS &nbsp;·&nbsp; 2023 &nbsp;·&nbsp; CO-AUTHOR</span>
+            </div>
+            <div class="pub-entry">
+              <span class="pub-title">Blockchain Technology and Applications</span>
+              <span class="pub-meta">KINDLE &nbsp;·&nbsp; 2022 &nbsp;·&nbsp; CONTRIBUTOR</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact">
+
+      <span class="contact-label">06 / CONTACT</span>
+
+      <div class="contact-heading">
+        <span class="contact-line">LET'S BUILD</span>
+        <span class="contact-line contact-line--outline">SOMETHING</span>
+      </div>
+
+      <!-- 3D asterisk — absolutely positioned right side -->
+      <div id="asterisk-container">
+        <canvas id="asterisk-canvas"></canvas>
+      </div>
+
+      <div class="contact-bottom">
+        <div class="contact-info">
+          <div class="contact-details">
+            <a href="mailto:aryantopulkit2@gmail.com" class="contact-item">
+              <span class="contact-item-label">EMAIL</span>
+              <span class="contact-item-value">aryantopulkit2@gmail.com</span>
+            </a>
+            <a href="tel:+919354694299" class="contact-item">
+              <span class="contact-item-label">PHONE</span>
+              <span class="contact-item-value">+91 93546 94299</span>
+            </a>
+          </div>
+          <div class="contact-socials">
+            <a href="https://github.com/pulkit-sinha" target="_blank" rel="noopener" class="contact-social" aria-label="GitHub">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/pulkit-sinha-803907200/" target="_blank" rel="noopener" class="contact-social" aria-label="LinkedIn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://steamcommunity.com/profiles/76561198445064925/" target="_blank" rel="noopener" class="contact-social" aria-label="Steam">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.718L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.455 1.012zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.662 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.252 0-2.265-1.014-2.265-2.265z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-footer">
+          <span>Built with ❤️ and Claude</span>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Bangalore clock (IST = UTC+5:30), updates every 10ms -->
+  <script>
+    (function () {
+      const el = document.getElementById('hud-clock');
+      if (!el) return;
+      function tick() {
+        const now = new Date();
+        const parts = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: false,
+        }).formatToParts(now);
+        const get = (type) => parts.find(p => p.type === type).value;
+        const ms  = String(now.getMilliseconds()).padStart(3, '0');
+        el.textContent = get('hour') + ':' + get('minute') + ':' + get('second') + '.' + ms;
+        setTimeout(tick, 10);
+      }
+      tick();
+    })();
+  </script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- GSAP (global, loaded before modules) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis smooth scroll -->
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+
+  <!-- Main entry point (ES module — imports loader + katana + hero) -->
+  <script type="module">
+    import { initLoader }      from './js/loader.js';
+    import { initHero }        from './js/hero.js';
+    import { initMask }        from './js/mask.js';
+    import { initExperience }  from './js/experience.js';
+    import { initEducation }   from './js/education.js';
+    import { initContact }     from './js/contact.js';
+    import { initFluid }       from './js/fluid.js';
+    import { initAsterisk }    from './js/asterisk.js';
+    import { initSiteGlitch }  from './js/glitch.js';
+
+    lucide.createIcons();
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+
+    document.addEventListener('mousemove', e => {
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.15,
+        ease: 'power2.out',
+      });
+    });
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('is-hovering'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering'));
+    });
+
+    // Start loader — katana slash is the exit, then hero reveals
+    initLoader(() => {
+      initHero();
+      initMask();
+      initExperience();
+      initEducation();
+      initContact();
+      initFluid();
+      initAsterisk();
+      initSiteGlitch();
+    });
+  </script>
+
+</body>
+</html>

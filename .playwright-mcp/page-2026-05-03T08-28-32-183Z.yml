@@ -1,0 +1,39 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e6]: P / PORTFOLIO
+    - generic [ref=e7]:
+      - paragraph [ref=e8]: HEAD OF SOFTWARE / ARMATRIX
+      - generic "Pulkit Sinha" [ref=e9]:
+        - generic [ref=e10]: PULKIT
+        - generic [ref=e11]: SINHA
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]: ENGINEER.
+        - generic [ref=e16]: BUILDER.
+        - generic [ref=e17]: CREATOR.
+      - generic "Background" [ref=e18]:
+        - generic [ref=e19]: ARMATRIX
+        - generic [ref=e20]: ALPHASENSE
+        - generic [ref=e21]: AMAZON
+        - generic [ref=e22]: BITS PILANI
+    - generic [ref=e24]: BENGALURU, IN — 2026
+  - generic [ref=e28]: 02 / EXPERIENCE
+  - generic [ref=e101]:
+    - generic [ref=e105]:
+      - heading "BITS PILANI" [level=2] [ref=e107]:
+        - text: BITS
+        - text: PILANI
+      - list [ref=e109]
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e115]: DELHI PUBLIC SCHOOL, VASANT KUNJ
+        - generic [ref=e116]: CLASS XII · CBSE · 96.6%
+      - list [ref=e117]
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - generic [ref=e122]: DELHI PUBLIC SCHOOL, GURGAON
+        - generic [ref=e123]: CLASS X · CBSE · 97.0%
+      - list [ref=e124]
+  - generic [ref=e168]:
+    - generic [ref=e169]: LET'S BUILD
+    - generic [ref=e170]: SOMETHING

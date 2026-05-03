@@ -1,0 +1,303 @@
+/* ============================================
+   RESPONSIVE — Mobile (≤ 768px)
+   Layout-only overrides. Colors, hover effects,
+   and typography are left untouched.
+   ============================================ */
+
+@media (max-width: 768px) {
+
+  /* overflow-x: clip stops horizontal scroll without creating a BFC/scroll-container (unlike hidden) */
+  html { overflow-x: clip; }
+
+  /* Restore default cursor on touch devices */
+  body, *, *::before, *::after { cursor: auto !important; }
+  .cursor { display: none; }
+
+  /* ══════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════ */
+
+  /* HUD: show clock, hide PS/PORTFOLIO + coordinates — clock only fits at 390px */
+  .hero-hud > span:first-child { display: none; }
+  .hero-hud span:nth-child(2) { display: none; }
+
+  /* Stack hero items from top; push BENGALURU to the bottom */
+  #hero {
+    justify-content: flex-start;
+    gap: var(--space-md);
+  }
+
+  /* Don't grow — let the name take only its natural height */
+  .hero-content {
+    flex: 0 0 auto;
+    padding-top: 0;
+  }
+
+  /* Slightly smaller name so both lines clear the gutter */
+  .hero-name-line {
+    font-size: clamp(4.5rem, 20vw, 6rem);
+  }
+
+  /* Pull info panel out of absolute positioning — push it to the bottom,
+     leaving the middle of the hero free for the cat mask */
+  .hero-info {
+    position: static;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-left: none;
+    border-top: 2px solid #000;
+    padding: var(--space-sm) 0 0;
+    padding-bottom: 0;
+    gap: var(--space-md);
+    margin-top: auto;   /* push info + BENGALURU bar to the bottom */
+  }
+
+  /* Shrink pre-heading so it stays on one line */
+  .hero-pre {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+  }
+
+  /* The pseudo grid-overlay is only meaningful when the panel is right-side */
+  .hero-info::before { display: none; }
+
+  /* Align tagline + bio to the left within the row */
+  .hero-tagline { align-items: flex-start; }
+
+  .hero-tagline-line {
+    text-align: left;
+    font-size: clamp(2.8rem, 10vw, 4.4rem);
+  }
+
+  .hero-bio {
+    border-top: none;
+    padding-top: 0;
+    align-items: flex-start;
+    text-align: left;
+    font-size: clamp(0.55rem, 2.6vw, 0.7rem);
+    letter-spacing: 0.08em;
+  }
+
+  /* Mask: show on mobile, smaller + shifted down into the empty hero space */
+  #mask-canvas {
+    display: block;
+    width:  min(78vw, 78vh);
+    height: min(78vw, 78vh);
+    top: 50%;   /* center in the empty space between name and info panel */
+  }
+
+  /* ══════════════════════════════════════════
+     EXPERIENCE
+     ══════════════════════════════════════════ */
+
+  /* Size to content on mobile — no forced viewport height */
+  #experience {
+    height: auto;
+    min-height: 0;
+  }
+
+  .exp-list {
+    overflow: visible;
+    flex: none;
+  }
+
+  /* Rows flow with content — GSAP height locking is skipped on mobile */
+  .exp-row {
+    height: auto !important;
+    overflow: visible;
+  }
+
+  /* Stack section headers vertically; hide all sublabels on mobile */
+  .exp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding-bottom: var(--space-sm);
+  }
+
+  .exp-sublabel,
+  .edu-sublabel { display: none; }
+
+  /* Slightly smaller company name to prevent row overflow */
+  .exp-company { font-size: clamp(1.4rem, 5vw, 1.9rem); }
+
+  /* Hide dates from the collapsed row header — dates are long and
+     cause wrapping at 390px. Role still conveys enough context. */
+  .exp-dates { display: none; }
+
+  /* Tighter role text */
+  .exp-role {
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* Tighter gap between role and toggle */
+  .exp-right { gap: 0.75rem; }
+
+  /* Match description text size to role label */
+  .exp-intro,
+  .exp-bullets li { font-size: 1.1rem; }
+
+  /* Stack bullets and tech pills vertically in expanded panel */
+  .exp-details {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .exp-pills {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    padding-left: 0;
+    padding-top: 0.8rem;
+  }
+
+  /* ══════════════════════════════════════════
+     EDUCATION / SKILLS / PUBLICATIONS
+     ══════════════════════════════════════════ */
+
+  /* Collapse two-column layout into a single stacked column */
+  #education {
+    flex-direction: column;
+    height: auto;           /* allow content to determine height */
+    min-height: 100vh;
+  }
+
+  .edu-left {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    /* content determines height; no flex shrink fighting */
+    flex-shrink: 0;
+  }
+
+  .edu-right {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  /* Override the flex proportions so each block sizes to its content */
+  .skills-section,
+  .pub-section {
+    flex: none;
+    overflow: visible;
+  }
+
+  /* Smaller BITS PILANI display heading on mobile */
+  .edu-school-name { font-size: clamp(1.2rem, 6vw, 1.8rem); }
+
+
+  /* Show line-break before score, hidden on desktop */
+  .mobile-br { display: block; }
+  /* Hide inline separator — score is on its own line on mobile */
+  .desktop-sep { display: none; }
+
+  /* Shrink degree/meta and achievement items to match on mobile */
+  .edu-degree,
+  .edu-inst-meta,
+  .edu-achievements li {
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Stack degree/meta below school name — side-by-side is too cramped at 390px */
+  .edu-inst-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  /* ══════════════════════════════════════════
+     EDUCATION — disable all red-bg effects on mobile
+     ══════════════════════════════════════════ */
+
+  .edu-institution::before,
+  .skills-section::before,
+  .pub-section::before { display: none; }
+
+  /* Neutralise all tap-triggered hover colour changes */
+  .edu-institution:hover,
+  .edu-institution.is-active { border-top-color: var(--color-border); }
+
+  .edu-institution:hover + .edu-institution { border-top-color: var(--color-border); }
+
+  .edu-institution:hover .edu-school-name,
+  .edu-institution:hover .edu-degree,
+  .edu-institution:hover .edu-inst-name,
+  .edu-institution:hover .edu-inst-meta { color: var(--color-text); }
+
+  .edu-institution:hover .edu-achievements li { color: var(--color-text-muted); }
+  .edu-institution:hover .edu-achievements li .bullet { color: var(--color-accent); }
+
+  .skills-section:hover .skills-label { color: var(--color-accent); }
+  .skills-section:hover .skills-group-title { color: var(--color-text-muted); }
+  .skills-section:hover .skill-tag { color: var(--color-text); border-color: var(--color-border); }
+
+  .pub-section:hover .pub-label { color: var(--color-accent); }
+  .pub-section:hover .pub-title { color: var(--color-text); }
+  .pub-section:hover .pub-meta { color: var(--color-text-muted); }
+  .pub-section:hover a.pub-link { color: var(--color-cyan); }
+
+  /* ══════════════════════════════════════════
+     CONTACT
+     ══════════════════════════════════════════ */
+
+  /* Flow contact vertically: label → heading → asterisk → contact-bottom */
+  #contact {
+    height: auto;
+    min-height: 100vh;
+    justify-content: flex-start;
+    gap: var(--space-md);
+  }
+
+  /* Heading takes only its natural height */
+  .contact-heading {
+    flex: none;
+  }
+
+  /* Heading — as large as fits on one line at 390px */
+  .contact-line {
+    font-size: clamp(2.8rem, 15vw, 5rem);
+  }
+
+  /* Asterisk: pull out of absolute positioning, center below heading */
+  #asterisk-container {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: clamp(300px, 90vw, 420px);
+    height: clamp(300px, 90vw, 420px);
+    margin: 0 auto;
+  }
+
+  /* Push contact-bottom (email/phone/footer) to the bottom of the section */
+  .contact-bottom {
+    flex-shrink: 0;
+    margin-top: auto;
+    gap: var(--space-sm);
+  }
+
+  /* Stack contact info (email/phone row + socials) vertically */
+  .contact-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .contact-socials {
+    width: fit-content;
+    margin: 0 auto;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-sm);
+  }
+
+  /* Tighter email address so it doesn't overflow at 390px */
+  .contact-item-value {
+    font-size: clamp(0.7rem, 3.2vw, 0.9rem);
+    letter-spacing: 0.04em;
+  }
+}

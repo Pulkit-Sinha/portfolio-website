@@ -1,0 +1,240 @@
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+
+#contact {
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-lg) var(--gutter) calc(var(--space-md) * 1.5);
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border);
+  transition:
+    background-color 0.8s var(--ease-in-out),
+    border-color 0.8s var(--ease-in-out);
+}
+
+/* ── Inverted color scheme ──────────────── */
+
+#contact.is-inverted {
+  background: #F5F2EB;
+  border-top-color: #F5F2EB; /* matches bg — seamless join with inverted education */
+}
+
+#contact.is-inverted .contact-label {
+  color: var(--color-accent);
+}
+
+#contact.is-inverted .contact-line {
+  color: #0A0A0E;
+}
+
+#contact.is-inverted .contact-line--outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #0A0A0E;
+}
+
+#contact.is-inverted .contact-info {
+  border-top-color: #D0CCC2;
+}
+
+#contact.is-inverted .contact-item-label {
+  color: #8A8880;
+}
+
+#contact.is-inverted .contact-item-value {
+  color: #0A0A0E;
+}
+
+#contact.is-inverted .contact-social {
+  color: #8A8880;
+}
+
+#contact.is-inverted .contact-social:hover {
+  color: #0A0A0E;
+}
+
+#contact.is-inverted .contact-social svg {
+  color: #8A8880;
+}
+
+#contact.is-inverted .contact-social:hover svg {
+  color: #0A0A0E;
+}
+
+#contact.is-inverted .contact-footer {
+  border-top-color: #D0CCC2;
+}
+
+#contact.is-inverted .contact-footer span {
+  color: #8A8880;
+}
+
+/* ── 3D Asterisk ────────────────────────── */
+
+#asterisk-container {
+  position: absolute;
+  right: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(240px, 34vw, 500px);
+  height: clamp(240px, 34vw, 500px);
+  pointer-events: auto;
+  z-index: 1;
+}
+
+#asterisk-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Top label ──────────────────────────── */
+
+.contact-label {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* ── Main heading ───────────────────────── */
+
+.contact-heading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  overflow: hidden;
+}
+
+.contact-line {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-hero);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  display: block;
+  clip-path: inset(0 100% 0 0);
+  transition: color 0.8s var(--ease-in-out);
+}
+
+.contact-line--outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-text);
+  transition: -webkit-text-stroke-color 0.8s var(--ease-in-out);
+}
+
+/* ── Bottom: info row + footer ──────────── */
+
+.contact-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}
+
+.contact-info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+  transition: border-color 0.8s var(--ease-in-out);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-item-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  width: 4rem;
+  flex-shrink: 0;
+  transition: color 0.8s var(--ease-in-out);
+}
+
+.contact-item-value {
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-transform: lowercase;
+  transition: color 0.2s ease;
+}
+
+.contact-item:hover .contact-item-value {
+  color: var(--color-accent);
+}
+
+/* ── Social links ───────────────────────── */
+
+.contact-socials {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contact-social {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-social svg {
+  display: block;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.contact-social:hover {
+  color: var(--color-text);
+}
+
+.contact-social:hover svg {
+  transform: scale(1.15);
+}
+
+/* ── Footer bar ─────────────────────────── */
+
+.contact-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-sm);
+  transition: border-color 0.8s var(--ease-in-out);
+}
+
+.contact-footer span {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  transition: color 0.8s var(--ease-in-out);
+}

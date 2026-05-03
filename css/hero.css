@@ -1,0 +1,297 @@
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--gutter);
+  padding-top: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-accent);
+  /* Crosshair grid — subtle black crosses on red */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='65' height='65'%3E%3Cline x1='32' y1='27' x2='32' y2='37' stroke='black' stroke-width='0.8' opacity='0.12'/%3E%3Cline x1='27' y1='32' x2='37' y2='32' stroke='black' stroke-width='0.8' opacity='0.12'/%3E%3C/svg%3E");
+  background-size: 65px 65px;
+}
+
+/* ── HUD top bar ────────────────────────────── */
+
+.hero-hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.2em;
+  color: #000;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+}
+
+/* ── Main content block ─────────────────────── */
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+/* Pre-heading label */
+.hero-pre {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.25em;
+  color: #000;
+  text-transform: uppercase;
+  will-change: clip-path;
+}
+
+/* Name block */
+.hero-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.88;
+  margin: 0;
+}
+
+.hero-name-line {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(6rem, 22vw, 22rem);
+  letter-spacing: -0.02em;
+  color: #000;
+  text-transform: uppercase;
+  display: block;
+  will-change: clip-path, transform;
+}
+
+/* SINHA — outline only */
+.hero-name-outline {
+  -webkit-text-stroke: 3px #000;
+  color: transparent;
+}
+
+/* Full-width rule under SINHA */
+.hero-name-rule {
+  height: 2px;
+  background: #000;
+  margin-left: calc(-1 * var(--gutter));
+  width: calc(100% + 2 * var(--gutter));
+  flex-shrink: 0;
+}
+
+/* ── Bottom-right info block ─────────────────── */
+
+.hero-info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: var(--space-sm);
+  padding-bottom: 5rem;
+  padding-left: var(--space-md);
+  border-left: 2px solid #000;
+  z-index: 1;
+}
+
+.hero-info::before {
+  content: '';
+  position: absolute;
+  top: var(--grid-offset, 0px);
+  height: var(--grid-height, 50%);
+  left: 0;
+  right: calc(-1 * var(--gutter));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='65' height='65'%3E%3Cline x1='32' y1='27' x2='32' y2='37' stroke='black' stroke-width='1.2' opacity='0.45'/%3E%3Cline x1='27' y1='32' x2='37' y2='32' stroke='black' stroke-width='1.2' opacity='0.45'/%3E%3C/svg%3E");
+  background-size: 65px 65px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Bottom-left darker grid (below name rule, left of vertical line) */
+.hero-grid-bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='65' height='65'%3E%3Cline x1='32' y1='27' x2='32' y2='37' stroke='black' stroke-width='1.2' opacity='0.45'/%3E%3Cline x1='27' y1='32' x2='37' y2='32' stroke='black' stroke-width='1.2' opacity='0.45'/%3E%3C/svg%3E");
+  background-size: 65px 65px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-bio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.2em;
+  color: #000;
+  text-transform: uppercase;
+  line-height: 1.8;
+  text-align: right;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  padding-top: var(--space-sm);
+}
+
+.hero-bio span {
+  opacity: 1;
+}
+
+/* ── Tagline ─────────────────────────────────── */
+
+.hero-tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 0.92;
+}
+
+.hero-tagline-line {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5.2vw, 6rem);
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  text-align: right;
+  opacity: 0;
+}
+
+/* Subline */
+.hero-sub {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.12em;
+  color: #000;
+  line-height: 1.8;
+  text-transform: uppercase;
+  text-align: right;
+  will-change: opacity;
+}
+
+/* ── Bottom row ─────────────────────────────── */
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: var(--space-md);
+  will-change: opacity;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-location {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.2em;
+  color: #000;
+  text-transform: uppercase;
+}
+
+/* ── Scroll indicator ───────────────────────── */
+
+.hero-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-scroll-label {
+  font-family: var(--font-mono);
+  font-size: calc(var(--text-caption) * 2);
+  letter-spacing: 0.25em;
+  color: #000;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-scroll-dot {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 1px;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
+  animation: scroll-dot 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes scroll-dot {
+  0%   { top: -40%; opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+
+/* ── Bottom divider ─────────────────────────── */
+
+.hero-divider {
+  position: absolute;
+  bottom: 0;
+  left: var(--gutter);
+  right: var(--gutter);
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  transform-origin: left center;
+}
+
+/* ── Mask canvas — fixed, scrolls in from below */
+
+#mask-canvas {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(72vw, 72vh);
+  height: min(72vw, 72vh);
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* ── Glitch characters ──────────────────────── */
+
+.glitch-char {
+  display: inline;
+  transition: color 0.03s step-start;
+}
+
+/* When a katakana glyph is active, bump it slightly for readability */
+.glitch-char[data-glitching] {
+  position: relative;
+}
+
+/* ── Initial hidden states ──────────────────── */
+
+.hero-pre,
+.hero-name-line {
+  clip-path: inset(0 100% 0 0);
+}
+
+.hero-bottom,
+.hero-info {
+  opacity: 0;
+}
