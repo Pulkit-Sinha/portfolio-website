@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pulkit Sinha — Engineer</title>
+  <title>Pulkit Sinha</title>
+  <link rel="icon" href="assets/icons/favicon.ico" />
 
   <!-- Import map — tells browser where to resolve bare 'three' specifiers -->
   <script type="importmap">
@@ -416,7 +417,7 @@
   <script type="module">
     import { initLoader }      from './js/loader.js';
     import { initHero }        from './js/hero.js';
-    import { initMask }        from './js/mask.js';
+    import { initMask, preloadMaskModels } from './js/mask.js';
     import { initExperience }  from './js/experience.js';
     import { initEducation }   from './js/education.js';
     import { initContact }     from './js/contact.js';
@@ -443,6 +444,9 @@
       el.addEventListener('mouseenter', () => cursor.classList.add('is-hovering'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering'));
     });
+
+    // Kick off mask + oni downloads immediately so they're ready when loader exits
+    preloadMaskModels();
 
     // Start loader — katana slash is the exit, then hero reveals
     initLoader(() => {
