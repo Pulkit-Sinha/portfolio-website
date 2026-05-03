@@ -2,8 +2,9 @@
 // KATANA — Three.js scene + GLB model + slash
 // ============================================
 
-import * as THREE from 'https://esm.sh/three@0.160.0';
-import { GLTFLoader } from 'https://esm.sh/three@0.160.0/examples/jsm/loaders/GLTFLoader';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'https://cdn.jsdelivr.net/npm/meshoptimizer@0.18.1/meshopt_decoder.module.js';
 
 const RISE_DURATION = 1.20; // seconds — blade rises from below to centre
 
@@ -86,6 +87,7 @@ export function initKatana() {
 
 function loadKatana() {
   const loader = new GLTFLoader();
+  loader.setMeshoptDecoder(MeshoptDecoder);
 
   loader.load(
     './assets/models/katana.glb',

@@ -3,10 +3,13 @@
 //        scroll-triggered entrance from below
 // ============================================
 
-import * as THREE from 'https://esm.sh/three@0.160.0';
-import { GLTFLoader } from 'https://esm.sh/three@0.160.0/examples/jsm/loaders/GLTFLoader';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'https://cdn.jsdelivr.net/npm/meshoptimizer@0.18.1/meshopt_decoder.module.js';
 
 let _scene, _camera, _renderer, _maskGroup, _demonGroup, _oniLight;
+let _preloadedMask = null;
+let _preloadedOni  = null;
 let _mouse = { x: 0, y: 0 };
 let _current = { rx: 0, ry: 0 };
 let _glitching = false;
@@ -15,6 +18,13 @@ const MAX_RY = 0.52;
 const MAX_RX = 0.28;
 const LERP        = 0.06;
 const LERP_MOBILE = 0.03;  /* slower on touch — keeps motion visible longer */
+
+export function preloadMaskModels() {
+  const loader = new GLTFLoader();
+  loader.setMeshoptDecoder(MeshoptDecoder);
+  loader.load('./assets/models/mask.glb', gltf => { _preloadedMask = gltf; });
+  loader.load('./assets/models/oni.glb',  gltf => { _preloadedOni  = gltf; });
+}
 
 export function initMask() {
   const canvas = document.getElementById('mask-canvas');
@@ -121,45 +131,49 @@ export function initMask() {
 
   // ── Load cat mask ────────────────────────
   const loader = new GLTFLoader();
-  loader.load(
-    './assets/models/mask.glb',
-    (gltf) => {
-      _maskGroup = gltf.scene;
-      fitModel(_maskGroup, 2.4);
+  loader.setMeshoptDecoder(MeshoptDecoder);
+
+  function onMaskLoaded(gltf) {
+    _maskGroup = gltf.scene;
+    fitModel(_maskGroup, 2.4);
+    _maskGroup.traverse(child => {
+      if (child.isMesh) {
+        child.material.transparent = true;
+        child.material.opacity = 0;
+      }
+    });
+    _scene.add(_maskGroup);
+
+    setTimeout(() => {
       _maskGroup.traverse(child => {
         if (child.isMesh) {
-          child.material.transparent = true;
-          child.material.opacity = 0;
+          gsap.to(child.material, { opacity: 1, duration: 1.4, ease: 'power2.out' });
         }
       });
-      _scene.add(_maskGroup);
+      setTimeout(glitchLoop, 5000);
+    }, 400);
+  }
 
-      setTimeout(() => {
-        _maskGroup.traverse(child => {
-          if (child.isMesh) {
-            gsap.to(child.material, { opacity: 1, duration: 1.4, ease: 'power2.out' });
-          }
-        });
-        // Start glitch loop — wait for oni GLB to load
-        setTimeout(glitchLoop, 5000);
-      }, 400);
-    },
-    undefined,
-    (err) => console.warn('Mask GLB failed to load:', err)
-  );
+  function onOniLoaded(gltf) {
+    _demonGroup = gltf.scene;
+    fitModel(_demonGroup, 3.6);
+    _demonGroup.visible = false;
+    _scene.add(_demonGroup);
+  }
 
-  // ── Load oni mask (hidden until glitch) ──
-  loader.load(
-    './assets/models/oni.glb',
-    (gltf) => {
-      _demonGroup = gltf.scene;
-      fitModel(_demonGroup, 3.6); // 1.5× cat mask size
-      _demonGroup.visible = false;
-      _scene.add(_demonGroup);
-    },
-    undefined,
-    (err) => console.warn('Oni GLB failed to load:', err)
-  );
+  if (_preloadedMask) {
+    onMaskLoaded(_preloadedMask);
+  } else {
+    loader.load('./assets/models/mask.glb', onMaskLoaded, undefined,
+      (err) => console.warn('Mask GLB failed to load:', err));
+  }
+
+  if (_preloadedOni) {
+    onOniLoaded(_preloadedOni);
+  } else {
+    loader.load('./assets/models/oni.glb', onOniLoaded, undefined,
+      (err) => console.warn('Oni GLB failed to load:', err));
+  }
 }
 
 // ── Fit a loaded model into a target size ──
