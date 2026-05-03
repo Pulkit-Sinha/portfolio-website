@@ -1,6 +1,0 @@
-[     727ms] [WARNING] WARNING: Multiple instances of Three.js being imported. @ https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js:5
-[     935ms] [WARNING] [.WebGL-0x13c0044a800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels @ http://localhost:3333/:0
-[     936ms] [WARNING] [.WebGL-0x13c0044a800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels @ http://localhost:3333/:0
-[     936ms] [WARNING] [.WebGL-0x13c0044a800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels @ http://localhost:3333/:0
-[     936ms] [WARNING] [.WebGL-0x13c0044a800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat) @ http://localhost:3333/:0
-[     953ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:3333/favicon.ico:0
