@@ -2,7 +2,7 @@
 
 Personal portfolio website. Built with plain HTML/CSS/JS — no framework, no build step.
 
-**Live:** [pulkitsinha.com](https://pulkitsinha.com)
+**Live:** [pulkit-sinha.com](https://pulkit-sinha.com)
 
 ## Tech Stack
 
