@@ -45,6 +45,7 @@
 
 .exp-list {
   flex: 1;
+  min-height: 0; /* without this, min-height:auto lets pre-JS row content inflate the list past 100vh, pushing the last row below the fold */
   display: flex;
   flex-direction: column;
   /* overflow moved to #experience so row backgrounds reach viewport edges */

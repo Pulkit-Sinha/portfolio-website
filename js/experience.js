@@ -27,7 +27,9 @@ export function initExperience() {
       position:   'fixed',
       top:        '-9999px',
       left:       '0',
-      width:      row.clientWidth + 'px',
+      // row.clientWidth includes the row's gutter padding — the details panel
+      // is narrower, so measuring at row width under-counts wrapped lines
+      width:      details.getBoundingClientRect().width + 'px',
       height:     'auto',
       flex:       'none',
       visibility: 'hidden',

@@ -1,0 +1,22 @@
+# HTML — always revalidate so deploys are instant
+/*
+  Cache-Control: no-cache
+
+# Versioned assets — cache aggressively (1 year)
+# These filenames don't change, but contents rarely do
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/models/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/icons/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# JS + CSS — cache for 1 week, revalidate after
+# No content hashing, so avoid immutable here
+/js/*
+  Cache-Control: public, max-age=604800, must-revalidate
+
+/css/*
+  Cache-Control: public, max-age=604800, must-revalidate

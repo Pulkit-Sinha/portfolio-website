@@ -1,0 +1,5 @@
+# Playwright MCP debugging artifacts (snapshots, console logs, screenshots)
+.playwright-mcp/
+
+# OS junk
+.DS_Store
