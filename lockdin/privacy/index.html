@@ -3,49 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LockdIn — Privacy Policy</title>
+<title>LockdIn · Privacy Policy</title>
+<link rel="icon" href="/lockdin/assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { color-scheme: light; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-         max-width: 680px; margin: 0 auto; padding: 48px 24px 96px; color: #1a1a1a;
-         background: #fff; line-height: 1.65; }
-  h1 { font-size: 28px; letter-spacing: -0.02em; margin-bottom: 4px; }
-  .updated { color: #888; font-size: 14px; margin-bottom: 40px; }
-  h2 { font-size: 18px; margin-top: 36px; letter-spacing: -0.01em; }
-  p, li { font-size: 15px; color: #333; }
-  ul { padding-left: 22px; }
-  .quiet { color: #777; font-size: 13px; margin-top: 48px; border-top: 1px solid #eee; padding-top: 16px; }
-  a { color: #4F8A6E; }
-  strong { color: #111; }
+  /* LockdIn design system, mirrored from the app's Tokens/Gradients/Typography */
+  :root{
+    color-scheme: light;
+    --fg1:#000; --fg2:rgba(0,0,0,.62); --fg3:rgba(0,0,0,.40);
+    --fg4:rgba(0,0,0,.16); --fg5:rgba(0,0,0,.06);
+    --bg1:#fff; --signal1:#6FA68C; --signal2:#C7C766; --signal3:#D98C3F; --signal4:#7A1F1F;
+    --ok:#4F8A6E;
+    --grad-signal:linear-gradient(90deg,var(--signal1) 0%,var(--signal2) 33%,var(--signal3) 66%,var(--signal4) 100%);
+    --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --head:"Manrope",var(--sans);
+  }
+  *{box-sizing:border-box;margin:0}
+  body{font-family:var(--sans);background:var(--bg1);color:var(--fg2);
+       max-width:680px;margin:0 auto;padding:36px 24px 96px;line-height:1.65;font-size:15px}
+  a{color:var(--ok);text-decoration:none} a:hover{text-decoration:underline}
+  .topbar{display:flex;align-items:center;gap:10px;margin-bottom:56px}
+  .topbar img{width:28px;height:29px}
+  .wordmark{font-family:var(--head);font-weight:800;font-size:20px;color:var(--fg1);letter-spacing:-0.02em}
+  .topnav{margin-left:auto;display:flex;gap:18px;font-size:13px;font-weight:500}
+  .topnav a{color:var(--fg2)}
+  .eyebrow{display:flex;align-items:baseline;gap:10px;font-size:11px;font-weight:600;
+           letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:18px}
+  .eyebrow .lead{flex:1;border-bottom:1px dotted var(--fg4);transform:translateY(-4px)}
+  h1{font-family:var(--head);font-weight:400;font-size:38px;letter-spacing:-0.03em;
+     line-height:1.1;color:var(--fg1);margin-bottom:6px}
+  .signal{font-family:"Times New Roman",Times,serif;font-style:italic;
+          background:var(--grad-signal);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .updated{color:var(--fg3);font-size:14px;margin-bottom:36px}
+  h2{font-family:var(--head);font-weight:600;font-size:18px;letter-spacing:-0.01em;
+     color:var(--fg1);margin:36px 0 8px}
+  p,li{color:var(--fg2)} ul{padding-left:22px} li{margin-bottom:8px}
+  strong{color:var(--fg1)}
+  .quiet{display:flex;gap:18px;color:var(--fg3);font-size:13px;margin-top:48px;border-top:1px solid var(--fg4);padding-top:16px}
+  .quiet .right{margin-left:auto}
+  .madewith{margin-top:40px;text-align:center;font-size:12px;color:var(--fg3)}
 </style>
 </head>
 <body>
 
-<h1>LockdIn — Privacy Policy</h1>
+<div class="topbar">
+  <a href="/lockdin/"><img src="/lockdin/assets/logo-mark.png" alt="LockdIn home"></a>
+  <span class="wordmark">LockdIn</span>
+  <nav class="topnav"><a href="/lockdin/">Home</a><a href="/lockdin/support">Support</a></nav>
+</div>
+
+<div class="eyebrow"><span>Privacy policy</span><span class="lead"></span><span>Plain English</span></div>
+
+<h1>Your data, <span class="signal">exactly.</span></h1>
 <p class="updated">Effective July 16, 2026</p>
 
 <p>LockdIn is a social-accountability focus app made by Shereen and Pulkit ("we").
 This page describes exactly what data the app handles and why. Questions:
-<a href="mailto:pulkit@armatrix.in">pulkit@armatrix.in</a>.</p>
+<a href="mailto:aryantopulkit2@gmail.com">aryantopulkit2@gmail.com</a>.</p>
 
 <h2>What we collect</h2>
 <ul>
-  <li><strong>Phone number</strong> — your account identity. Used to sign you in via SMS one-time
+  <li><strong>Phone number</strong>: your account identity. Used to sign you in via SMS one-time
       code and to let friends who already have your number find you.</li>
-  <li><strong>Name and initials</strong> — what your circle sees.</li>
-  <li><strong>Focus activity</strong> — your tasks and domains, focus sessions (task, duration,
+  <li><strong>Name and initials</strong>: what your circle sees.</li>
+  <li><strong>Focus activity</strong>: your tasks and domains, focus sessions (task, duration,
       start/end times, whether you finished or quit, an optional note), daily focus totals, and
       streaks.</li>
-  <li><strong>Your circle</strong> — connection requests and accepted connections, reactions
+  <li><strong>Your circle</strong>: connection requests and accepted connections, reactions
       (Respect/Poke) you give and receive, and invites you send (we store the invited phone number
       and whether it joined).</li>
-  <li><strong>Device push token</strong> — so we can deliver notifications.</li>
-  <li><strong>Timezone</strong> — so streaks and reminders follow your local day.</li>
+  <li><strong>Device push token</strong>: so we can deliver notifications.</li>
+  <li><strong>Timezone</strong>: so streaks and reminders follow your local day.</li>
 </ul>
 
 <h2>Contacts (optional)</h2>
 <p>If you grant Contacts access to find friends, phone numbers from your address book are sent to
-our server, matched against registered users, and <strong>immediately discarded — we do not store
+our server, matched against registered users, and <strong>immediately discarded; we do not store
 your address book</strong>. Contact names never leave your device. If you invite someone, the
 invite message is sent from your own WhatsApp or Messages, not by us; we only record the invited
 number so we can connect you when they join.</p>
@@ -53,10 +88,10 @@ number so we can connect you when they join.</p>
 <h2>What others can see</h2>
 <ul>
   <li><strong>Your circle</strong> (people you mutually accept, up to 20) sees your name, your live
-      and past focus sessions — including quits — your streaks, completion notes, and your place on
+      and past focus sessions (including quits), your streaks, completion notes, and your place on
       the shared leaderboard. That visibility is the point of the app.</li>
   <li><strong>Anyone who has your phone number</strong> in their contacts can discover that you're
-      on LockdIn (your name and initials) — like most contact-based social apps. They can't see
+      on LockdIn (your name and initials), like most contact-based social apps. They can't see
       your activity unless you accept their request.</li>
   <li>Your phone number is never shown to other users.</li>
 </ul>
@@ -88,7 +123,8 @@ encrypted infrastructure backups are purged on the provider's normal rotation sc
 <h2>Changes</h2>
 <p>If this policy changes materially, we'll update this page and note it in the app.</p>
 
-<p class="quiet">LockdIn · made with ♥ by Shereen and Pulkit</p>
+<div class="quiet"><span>LockdIn</span><span class="right">© 2026 Shereen and Pulkit</span></div>
+<p class="madewith">made with ♥ by Shereen and Pulkit</p>
 
 </body>
 </html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LockdIn · a focus timer your friends can see</title>
+<meta name="description" content="Pick one task. Lock in. Your circle sees you finish, and sees you quit. Social accountability that actually works.">
+<link rel="icon" href="/lockdin/assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* LockdIn design system, mirrored from the app's Tokens/Gradients/Typography */
+  :root{
+    color-scheme: light;
+    --fg1:#000; --fg2:rgba(0,0,0,.62); --fg3:rgba(0,0,0,.40);
+    --fg4:rgba(0,0,0,.16); --fg5:rgba(0,0,0,.06);
+    --bg1:#fff; --bg2:#fafaf9; --bg3:#f3f2ef;
+    --signal1:#6FA68C; --signal2:#C7C766; --signal3:#D98C3F; --signal4:#7A1F1F;
+    --ok:#4F8A6E; --ok-tint:rgba(79,138,110,.10); --ok-border:rgba(79,138,110,.30);
+    --red-bright:#E5341F; --red-tint:rgba(229,52,31,.06); --red-chip:rgba(229,52,31,.20);
+    --grad-signal:linear-gradient(90deg,var(--signal1) 0%,var(--signal2) 33%,var(--signal3) 66%,var(--signal4) 100%);
+    --grad-diag:linear-gradient(135deg,var(--signal1) 0%,var(--signal2) 33%,var(--signal3) 66%,var(--signal4) 100%);
+    --grad-progress:linear-gradient(90deg,var(--signal4) 0%,var(--signal3) 40%,var(--signal2) 70%,var(--signal1) 100%);
+    --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --head:"Manrope",var(--sans);
+  }
+  *{box-sizing:border-box;margin:0}
+  body{font-family:var(--sans);background:var(--bg1);color:var(--fg2);
+       max-width:680px;margin:0 auto;padding:36px 24px 96px;line-height:1.65;font-size:15px}
+  a{color:var(--ok);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{display:flex;align-items:center;gap:10px;margin-bottom:56px}
+  .topbar img{width:28px;height:29px}
+  .wordmark{font-family:var(--head);font-weight:800;font-size:20px;color:var(--fg1);letter-spacing:-0.02em}
+  .topnav{margin-left:auto;display:flex;gap:18px;font-size:13px;font-weight:500;color:var(--fg3)}
+  .topnav a{color:var(--fg2)}
+
+  .eyebrow{display:flex;align-items:baseline;gap:10px;font-size:11px;font-weight:600;
+           letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:18px}
+  .eyebrow .lead{flex:1;border-bottom:1px dotted var(--fg4);transform:translateY(-4px)}
+
+  h1{font-family:var(--head);font-weight:400;font-size:clamp(38px,8vw,56px);
+     letter-spacing:-0.035em;line-height:1.08;color:var(--fg1)}
+  .signal{font-family:"Times New Roman",Times,serif;font-style:italic;
+          background:var(--grad-signal);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{margin-top:20px;font-size:16px;max-width:46ch}
+
+  .lockin{display:inline-block;margin-top:36px;padding:20px 56px;border-radius:999px;
+          background:var(--grad-diag);color:#fff;font-family:var(--head);font-weight:800;
+          font-size:20px;letter-spacing:.1em;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+  .lockin-meta{margin-top:12px;font-size:12px;color:var(--fg3)}
+
+  .shots{display:flex;gap:20px;margin:72px 0;justify-content:center}
+  .shots img{width:calc(50% - 10px);max-width:280px;border:1px solid var(--fg4);
+             border-radius:28px;box-shadow:0 12px 32px rgba(0,0,0,.10)}
+
+  h2{font-family:var(--head);font-weight:600;font-size:24px;letter-spacing:-0.02em;
+     color:var(--fg1);margin-bottom:10px}
+  .feature{margin-top:64px}
+  .feature p{max-width:52ch}
+
+  /* app-style demo rows */
+  .row{margin-top:20px;border-radius:14px;padding:14px 18px;font-size:14px;color:var(--fg1)}
+  .row .meta{font-size:11px;color:var(--fg3);margin-top:2px}
+  .row-active{background:var(--ok-tint);border:1px solid var(--ok-border)}
+  .row-active .bar{height:3px;border-radius:2px;background:var(--fg5);margin-top:10px;overflow:hidden}
+  .row-active .bar i{display:block;height:100%;width:34%;background:var(--grad-progress)}
+  .live{color:var(--ok);font-size:11px;font-weight:600;letter-spacing:.08em}
+  .row-quit{background:var(--red-tint);border-left:3px solid var(--red-bright);border-radius:0 14px 14px 0}
+  .quitword{color:var(--red-bright);font-weight:600}
+  .chip{display:inline-block;margin-top:10px;padding:4px 12px;border-radius:999px;
+        background:var(--red-chip);color:var(--fg1);font-size:12px;font-weight:600}
+  .streakline{font-family:var(--head);font-weight:400;font-size:32px;letter-spacing:-0.03em;color:var(--fg1);margin-top:18px}
+  .boardrow{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:14px;color:var(--fg1)}
+  .boardrow .rank{color:var(--fg3);width:14px}
+  .boardrow .track{flex:1;height:4px;border-radius:2px;background:var(--fg5);overflow:hidden}
+  .boardrow .track i{display:block;height:100%}
+  .boardrow .hours{font-variant-numeric:tabular-nums;color:var(--fg2);font-size:13px}
+
+  .hr{border:0;border-top:1px solid var(--fg4);margin:72px 0 24px}
+  .footer{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--fg3)}
+  .footer .right{margin-left:auto}
+  .madewith{margin-top:40px;text-align:center;font-size:12px;color:var(--fg3)}
+  @media (max-width:540px){ .shots{flex-direction:column;align-items:center}
+    .shots img{width:100%;max-width:320px} .topnav{display:none} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img src="/lockdin/assets/logo-mark.png" alt="">
+  <span class="wordmark">LockdIn</span>
+  <nav class="topnav"><a href="/lockdin/support">Support</a><a href="/lockdin/privacy">Privacy</a></nav>
+</div>
+
+<div class="eyebrow"><span>The one thing</span><span class="lead"></span><span>For iPhone</span></div>
+
+<h1>You finish<br><span class="signal">what you start.</span></h1>
+
+<p class="sub">LockdIn is a focus timer your friends can see. Pick the one task that matters,
+lock in, and your circle watches you finish. Or watches you quit.</p>
+
+<div class="lockin">LOCK&nbsp;IN</div>
+<div class="lockin-meta">Coming soon to the App&nbsp;Store · one task · LockdIn stays quiet · screen dims</div>
+
+<div class="shots">
+  <img src="/lockdin/assets/shot-home.png" alt="LockdIn home screen: pick a task and lock in">
+  <img src="/lockdin/assets/shot-circle.png" alt="LockdIn circle feed: friends' live sessions, finishes, and quits">
+</div>
+
+<div class="feature">
+  <div class="eyebrow"><span>Presence</span><span class="lead"></span></div>
+  <h2>Locked in, together</h2>
+  <p>When you start a session, your circle sees it live. Focus stops being invisible. Someone locking in at 7am has a way of getting you off your phone.</p>
+  <div class="row row-active">
+    <span class="live">● 1 LOCKED IN NOW</span><br>
+    <strong>Maya</strong> → deep work on thesis
+    <div class="meta">Learning · 35m left</div>
+    <div class="bar"><i></i></div>
+  </div>
+</div>
+
+<div class="feature">
+  <div class="eyebrow"><span>Honesty</span><span class="lead"></span></div>
+  <h2>Quitting is public</h2>
+  <p>End a session early and it lands on the feed, red stripe and all. Your friends can poke you
+  for it. Small social stakes, real behavior change. No fake productivity.</p>
+  <div class="row row-quit">
+    <strong>Dev</strong> <span class="quitword">quit</span> clearing my inbox
+    <div class="meta">8m of 25m (32%)</div>
+    <span class="chip">! Poked&nbsp;&nbsp;2</span>
+  </div>
+</div>
+
+<div class="feature">
+  <div class="eyebrow"><span>The long game</span><span class="lead"></span></div>
+  <h2>Streaks and the board</h2>
+  <p>An hour of focus a day keeps your streak alive, and milestones land on the feed. A weekly
+  leaderboard ranks your circle by focused hours, and The Chase shows exactly who's ahead of you.</p>
+  <div class="streakline">Maya hit a <span class="signal">7-day</span> streak</div>
+  <div class="boardrow"><span class="rank">1</span><strong>Maya</strong>
+    <span class="track"><i style="width:92%;background:var(--ok)"></i></span><span class="hours">11.5h</span></div>
+  <div class="boardrow"><span class="rank">2</span><strong>Sara</strong>
+    <span class="track"><i style="width:60%;background:var(--fg1)"></i></span><span class="hours">7.4h</span></div>
+  <div class="boardrow"><span class="rank">3</span><strong>You</strong>
+    <span class="track"><i style="width:43%;background:var(--fg1)"></i></span><span class="hours">5.3h</span></div>
+</div>
+
+<hr class="hr">
+<div class="footer">
+  <a href="/lockdin/support">Support</a>
+  <a href="/lockdin/privacy">Privacy</a>
+  <a href="mailto:aryantopulkit2@gmail.com">aryantopulkit2@gmail.com</a>
+  <span class="right">© 2026 Shereen and Pulkit</span>
+</div>
+<p class="madewith">made with ♥ by Shereen and Pulkit</p>
+
+</body>
+</html>
