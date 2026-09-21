@@ -25,6 +25,22 @@ https://unpkg.com/lucide@latest/dist/umd/lucide.min.js
 Three.js loaded via importmap in index.html (`three` → jsDelivr CDN).
 
 Dev server: `python3 -m http.server 3333` from `/portfolio/`
+(main site only — for `/family` use `npx wrangler dev`, see below)
+
+**Deployment**: the whole site ships as the Cloudflare **Worker** `portfolio-website` (static assets + /family API) via `npx wrangler deploy`. Config in `wrangler.toml` (committed); `.assetsignore` keeps non-site files out of the upload.
+
+---
+
+## /family — Private Family Gallery
+
+Password-gated photo/video archive with an Elo head-to-head voting game.
+**Specs: `docs/family-gallery/workflow.md` (flows, screens, API) and `docs/family-gallery/schema.md` (D1 tables, R2 keys, constraints) — read those before touching this feature.**
+
+- **Backend**: `worker.js` routes `/api/*` to handler modules in `/functions` (`_lib/auth.js` = HMAC cookie auth); everything else falls through to static assets. D1 binding `DB`, private R2 binding `FAMILY_BUCKET` (both in `wrangler.toml`). Secrets (set via `npx wrangler secret put`): `FAMILY_PASSWORD`, `SESSION_SECRET`, `ADMIN_TOKEN`, `TRASH_PASSWORD`.
+- **Frontend**: `family/` (plain HTML/CSS/JS, reuses `css/variables.css` tokens, no Three.js/GSAP).
+- **Ingest**: `scripts/ingest.mjs` (local only, never deployed) — resizes/transcodes from the external drive, uploads to R2, registers via `/api/admin/register`. Needs `scripts/.env` (see `.env.example`), `npm i` in `scripts/`, ffmpeg for videos.
+- **Local dev**: copy `.dev.vars.example` → `.dev.vars` (gitignored), apply `schema.sql` with `npx wrangler d1 execute family-gallery --local --file=schema.sql`, then `npx wrangler dev` (localhost:8787). `python3 -m http.server` cannot run the Worker.
+- **NEVER commit**: photos, `.dev.vars`, `scripts/.env`, manifests — the repo is public. Secrets live only in Cloudflare (`wrangler secret put`); `wrangler.toml` is safe to commit (bindings only, no secrets).
 
 ---
 

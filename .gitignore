@@ -3,3 +3,13 @@
 
 # OS junk
 .DS_Store
+
+# /family gallery — never commit secrets or anything photo-related
+# (wrangler.toml IS committed — it holds bindings, no secrets)
+.dev.vars
+.wrangler/
+scripts/node_modules/
+scripts/*.manifest.json
+scripts/*.log
+scripts/.env
+family-photos/

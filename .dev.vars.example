@@ -1,0 +1,6 @@
+# Copy to .dev.vars (gitignored) for local `npx wrangler dev`.
+# In production these are Worker secrets: npx wrangler secret put <NAME>
+FAMILY_PASSWORD=change-me
+SESSION_SECRET=any-long-random-string-used-to-sign-cookies
+ADMIN_TOKEN=any-long-random-string-for-the-ingest-script
+TRASH_PASSWORD=second-password-for-the-deletion-review-gate

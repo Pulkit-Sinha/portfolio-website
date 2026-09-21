@@ -1,0 +1,32 @@
+# Deploy config for the portfolio Worker (static site + /family gallery API).
+#   Deploy:    npx wrangler deploy
+#   Local dev: npx wrangler dev   (localhost:8787; secrets from .dev.vars)
+# Secrets (FAMILY_PASSWORD, SESSION_SECRET, ADMIN_TOKEN) are NOT here —
+# set with `npx wrangler secret put <NAME>`.
+
+name = "portfolio-website"
+main = "worker.js"
+compatibility_date = "2026-07-21"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "."
+binding = "ASSETS"
+run_worker_first = [
+  "/api/*",
+  "/.well-known/apple-app-site-association",   # LockdIn universal links (AASA inlined in worker.js)
+  "/apple-app-site-association",
+  "/lockdin/join/*",                           # join landing page with the invite code injected
+]
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "family-gallery"
+database_id = "2d94e551-6a5c-4897-a7cb-45481e0540db"
+
+[[r2_buckets]]
+binding = "FAMILY_BUCKET"
+bucket_name = "family-gallery"

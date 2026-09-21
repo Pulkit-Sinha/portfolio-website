@@ -2,6 +2,10 @@
 /*
   Cache-Control: no-cache
 
+# Family gallery — keep the shell out of search engines
+/family/*
+  X-Robots-Tag: noindex
+
 # Versioned assets — cache aggressively (1 year)
 # These filenames don't change, but contents rarely do
 /assets/fonts/*

@@ -1,0 +1,18 @@
+# Not part of the served site — keep out of the Workers asset upload
+.git/
+.gitignore
+.wrangler/
+.playwright-mcp/
+.claude/
+.dev.vars
+.dev.vars.example
+.assetsignore
+node_modules/
+functions/
+scripts/
+docs/
+worker.js
+wrangler.toml
+schema.sql
+CLAUDE.md
+README.md

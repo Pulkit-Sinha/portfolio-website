@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>FAMILY — PS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="css/family.css" />
+</head>
+<body>
+
+  <header class="hud">
+    <a class="hud-brand" href="/">PS / <span>FAMILY</span></a>
+    <div class="hud-right">
+      <span id="hud-user" class="hud-user" hidden></span>
+      <button id="hud-switch" class="hud-switch" hidden>not you?</button>
+    </div>
+  </header>
+
+  <!-- LOGIN -->
+  <section id="view-login" class="view view-gate" hidden>
+    <p class="label">PRIVATE ARCHIVE</p>
+    <h1 class="gate-title">FAMILY<span class="accent">.</span></h1>
+    <form id="login-form" class="gate-form" autocomplete="off">
+      <input id="login-password" type="password" placeholder="password" autocomplete="current-password" required />
+      <button type="submit">Enter</button>
+    </form>
+    <p id="login-error" class="gate-error" role="alert" hidden>Wrong password. Try again.</p>
+  </section>
+
+  <!-- NAME PICKER -->
+  <section id="view-name" class="view view-gate" hidden>
+    <p class="label">WHO'S VOTING?</p>
+    <div id="name-list" class="name-list"></div>
+  </section>
+
+  <!-- APP -->
+  <div id="app" hidden>
+    <nav class="tabs" aria-label="Sections">
+      <button class="tab is-active" data-tab="versus">VERSUS</button>
+      <button class="tab" data-tab="ranks">RANKS</button>
+      <button class="tab" data-tab="archive">ARCHIVE</button>
+      <button class="tab" data-tab="stats">STATS</button>
+      <button class="tab tab-trash" data-tab="trash">TRASH</button>
+    </nav>
+
+    <!-- VERSUS -->
+    <section id="view-versus" class="view tab-view">
+      <div class="versus-top">
+        <p class="label">PICK THE BETTER ONE</p>
+        <div class="kinds" role="group" aria-label="Formats in play">
+          <label><input type="checkbox" id="kind-photo" checked /> PHOTOS</label>
+          <label><input type="checkbox" id="kind-video" checked /> VIDEOS</label>
+        </div>
+      </div>
+
+      <div id="arena" class="arena">
+        <article class="contender" data-slot="a">
+          <button class="expand" title="View, share or download" aria-label="Open item">⤢</button>
+          <button class="bin" title="Mark for deletion" aria-label="Mark for deletion">🗑</button>
+          <div class="media"></div>
+        </article>
+        <div class="seam" aria-hidden="true"><span>VS</span></div>
+        <article class="contender" data-slot="b">
+          <button class="expand" title="View, share or download" aria-label="Open item">⤢</button>
+          <button class="bin" title="Mark for deletion" aria-label="Mark for deletion">🗑</button>
+          <div class="media"></div>
+        </article>
+      </div>
+      <p id="arena-msg" class="arena-msg" hidden></p>
+
+      <div class="versus-actions">
+        <button id="btn-skip" class="pill">Skip pair</button>
+        <button id="btn-undo" class="pill pill-undo" hidden>Undo last vote</button>
+        <span id="vote-count" class="vote-count label"></span>
+      </div>
+    </section>
+
+    <!-- RANKS -->
+    <section id="view-ranks" class="view tab-view" hidden>
+      <div class="list-controls">
+        <div class="seg" role="group" aria-label="Kind">
+          <button class="seg-btn is-active" data-kind="photo">PHOTOS</button>
+          <button class="seg-btn" data-kind="video">VIDEOS</button>
+        </div>
+        <select id="ranks-folder" aria-label="Filter by folder">
+          <option value="">ALL FOLDERS</option>
+        </select>
+      </div>
+      <div id="ranks-grid" class="grid"></div>
+      <p id="ranks-empty" class="empty" hidden>Nothing rated yet — go play Versus.</p>
+      <button id="ranks-more" class="pill more" hidden>Load more</button>
+    </section>
+
+    <!-- ARCHIVE -->
+    <section id="view-archive" class="view tab-view" hidden>
+      <div id="folder-list" class="folder-list"></div>
+      <div id="archive-browser" hidden>
+        <div class="browser-head">
+          <button id="archive-back" class="pill">&larr; Folders</button>
+          <h2 id="archive-title" class="browser-title"></h2>
+        </div>
+        <div id="archive-grid" class="grid"></div>
+        <button id="archive-more" class="pill more" hidden>Load more</button>
+      </div>
+    </section>
+
+    <!-- TRASH (deletion review — extra password gate) -->
+    <section id="view-trash" class="view tab-view" hidden>
+      <div id="trash-gate" hidden>
+        <p class="label">DELETION REVIEW — RESTRICTED</p>
+        <form id="trash-form" class="gate-form" autocomplete="off">
+          <input id="trash-password" type="password" placeholder="review password" autocomplete="off" required />
+          <button type="submit">Unlock</button>
+        </form>
+        <p id="trash-error" class="gate-error" role="alert" hidden>Wrong password.</p>
+      </div>
+      <div id="trash-panel" hidden>
+        <p class="label">MARKED ITEMS ARE OUT OF PLAY · 3+ LOSSES ARE SUGGESTIONS · DELETION IS PERMANENT</p>
+        <p id="trash-count" class="trash-count"></p>
+        <div id="trash-grid" class="trash-grid"></div>
+        <p id="trash-empty" class="empty" hidden>Nothing awaiting review.</p>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section id="view-stats" class="view tab-view" hidden>
+      <div class="stats-block">
+        <p class="label">VOTES CAST</p>
+        <div id="stats-voters"></div>
+      </div>
+      <div class="stats-block">
+        <p class="label">YOUR MOST-PICKED</p>
+        <div id="stats-mytop" class="grid grid-small"></div>
+        <p id="stats-mytop-empty" class="empty" hidden>No picks yet — your favourites will collect here.</p>
+      </div>
+      <div class="stats-block">
+        <p class="label">ARCHIVE</p>
+        <div id="stats-totals" class="stats-totals"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" hidden>
+    <div class="lightbox-backdrop"></div>
+    <figure class="lightbox-stage">
+      <div id="lightbox-media" class="lightbox-media"></div>
+      <figcaption id="lightbox-rank" class="lightbox-rank label" hidden></figcaption>
+    </figure>
+    <div class="lightbox-bar">
+      <button id="lb-info" class="pill">Info</button>
+      <button id="lb-share" class="pill">Share</button>
+      <a id="lb-download" class="pill" download>Download</a>
+      <button id="lb-close" class="pill pill-close">Close</button>
+    </div>
+    <dl id="lightbox-info" class="lightbox-info" hidden></dl>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
