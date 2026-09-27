@@ -57,7 +57,7 @@
 <div class="eyebrow"><span>Privacy policy</span></div>
 
 <h1>Your data, <span class="signal">exactly.</span></h1>
-<p class="updated">Effective August 20, 2026</p>
+<p class="updated">Effective September 27, 2026</p>
 
 <p>LockdIn is a social-accountability focus app made by Shereen and Pulkit ("we").
 This page describes exactly what data the app handles and why. Questions:
@@ -68,12 +68,15 @@ This page describes exactly what data the app handles and why. Questions:
   <li><strong>Phone number</strong>: your account identity. Used to sign you in via SMS one-time
       code and to let friends who already have your number find you.</li>
   <li><strong>Name and initials</strong>: what your circle sees.</li>
-  <li><strong>Focus activity</strong>: your tasks and domains, focus sessions (task, duration,
-      start/end times, whether you finished or quit, an optional note), daily focus totals, and
-      streaks.</li>
+  <li><strong>Focus activity</strong>: your tasks and the focus domain you tag them with (Fitness, Chores, Work, Study, Hobby or Misc), focus sessions (task, domain, duration,
+      start/end times, whether you finished, quit, or chose not to count it, an optional note), daily focus totals,
+      streaks, and your <strong>weekly finishes</strong>: when each week ends we save where you
+      placed on your circle's leaderboard (for example 2nd of 9), your focus that week, and that
+      week's final standings.</li>
   <li><strong>Your circle</strong>: connection requests and accepted connections, reactions
-      (Respect/Poke) you give and receive, and invites you send (we store the invited phone number
-      and whether it joined).</li>
+      (Respect/Poke) you give and receive, when you last opened your Activity list (so we can mark
+      new reactions), and invites you send (we store the invited phone number and whether it
+      joined).</li>
   <li><strong>Device push token</strong>: so we can deliver notifications.</li>
   <li><strong>Timezone</strong>: so streaks and reminders follow your local day.</li>
 </ul>
@@ -90,8 +93,15 @@ involved in the delivery.</p>
 <h2>What others can see</h2>
 <ul>
   <li><strong>Your circle</strong> (people you mutually accept, up to 20) sees your name, your live
-      and past focus sessions (including quits), your streaks, completion notes, and your place on
-      the shared leaderboard. That visibility is the point of the app.</li>
+      and past focus sessions (including quits, and sessions you chose not to count, which show
+      in their feed as a note that you didn't count a session), your streaks, completion notes, and your place on
+      the shared leaderboard, your weekly finishes (where you placed each week, out of how
+      many, and your focus total that week), plus how many Respects and Pokes you've given and received in total
+      (counts only, not who reacted to what). The final standings saved for a week (who placed
+      where, with their focus totals) are shown only to the person whose board it was. That visibility is the point of the app.</li>
+  <li><strong>When you Respect or Poke someone</strong>, they see that it was you and which of
+      their sessions or streaks it was for, in their Activity list and (if they allow
+      notifications) as a push.</li>
   <li><strong>Anyone who has your phone number</strong> in their contacts can discover that you're
       on LockdIn (your name and initials), like most contact-based social apps. They can't see
       your activity unless you accept their request.</li>
@@ -115,9 +125,13 @@ only read what the visibility rules above allow. Sensitive credentials never shi
 app.</p>
 
 <h2>Retention and deletion</h2>
-<p>We keep your data while your account exists. <strong>You can delete your account any time in
+<p>We keep your data while your account exists, with one exception: we keep only your 7 most
+recently used tasks, and older tasks are deleted automatically (your past sessions keep their task
+name). <strong>You can delete your account any time in
 the app</strong> (Profile → Delete account): this immediately and permanently deletes your
-account, sessions, streaks, connections, reactions, invites, and push tokens. Residual copies in
+account, sessions, streaks, weekly finishes, connections, reactions, invites, and push tokens,
+and removes you from the saved weekly standings of everyone in your circle. (They keep their own
+recorded finish, such as "2nd of 5".) Residual copies in
 encrypted infrastructure backups are purged on the provider's normal rotation schedule.</p>
 <p>So the app works offline, a copy of your own data (your profile, circle, feed, focus history,
 and any sessions you finish while offline) is also kept on your device and syncs to our servers
