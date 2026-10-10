@@ -57,7 +57,7 @@
 <div class="eyebrow"><span>Privacy policy</span></div>
 
 <h1>Your data, <span class="signal">exactly.</span></h1>
-<p class="updated">Effective September 27, 2026</p>
+<p class="updated">Effective October 10, 2026</p>
 
 <p>LockdIn is a social-accountability focus app made by Shereen and Pulkit ("we").
 This page describes exactly what data the app handles and why. Questions:
@@ -77,6 +77,11 @@ This page describes exactly what data the app handles and why. Questions:
       (Respect/Poke) you give and receive, when you last opened your Activity list (so we can mark
       new reactions), and invites you send (we store the invited phone number and whether it
       joined).</li>
+  <li><strong>Session photos (optional)</strong>: if you add a photo to a session, we store it
+      (a full-size copy and a small preview, resized on your phone; the resize removes location
+      and camera details) and link it to that session. Photos are taken with the camera only;
+      LockdIn never reads your photo library. If you report someone else's photo, we record that
+      you reported it.</li>
   <li><strong>Device push token</strong>: so we can deliver notifications.</li>
   <li><strong>Timezone</strong>: so streaks and reminders follow your local day.</li>
 </ul>
@@ -105,6 +110,9 @@ involved in the delivery.</p>
   <li><strong>Anyone who has your phone number</strong> in their contacts can discover that you're
       on LockdIn (your name and initials), like most contact-based social apps. They can't see
       your activity unless you accept their request.</li>
+  <li>A <strong>session photo</strong> is visible to the same people as the session: you and your
+      circle. If you report someone's photo, it is hidden from you and we review it; they are not
+      told who reported it.</li>
   <li>Your phone number is never shown to other users.</li>
 </ul>
 
@@ -113,7 +121,7 @@ involved in the delivery.</p>
 collection beyond what's listed above.</p>
 
 <h2>Service providers</h2>
-<p>We run on <strong>Supabase</strong> (database, authentication, and push infrastructure; data
+<p>We run on <strong>Supabase</strong> (database, authentication, file storage for session photos, and push infrastructure; data
 stored in Mumbai, India), use <strong>Twilio</strong> to deliver sign-in SMS codes (they process
 your phone number for delivery), and <strong>Apple</strong> to deliver push notifications. This
 website (including invite-link pages) is served by <strong>Cloudflare</strong>, which processes
@@ -127,9 +135,11 @@ app.</p>
 <h2>Retention and deletion</h2>
 <p>We keep your data while your account exists, with one exception: we keep only your 7 most
 recently used tasks, and older tasks are deleted automatically (your past sessions keep their task
-name). <strong>You can delete your account any time in
+name), and session photos, which stop being visible 7 days after the session and are deleted from storage within a day after that (you can
+delete one sooner yourself, and a photo is deleted when you replace it or choose not to count
+its session). <strong>You can delete your account any time in
 the app</strong> (Profile → Delete account): this immediately and permanently deletes your
-account, sessions, streaks, weekly finishes, connections, reactions, invites, and push tokens,
+account, sessions, session photos, streaks, weekly finishes, connections, reactions, invites, and push tokens,
 and removes you from the saved weekly standings of everyone in your circle. (They keep their own
 recorded finish, such as "2nd of 5".) Residual copies in
 encrypted infrastructure backups are purged on the provider's normal rotation schedule.</p>
