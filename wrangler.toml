@@ -16,6 +16,7 @@ run_worker_first = [
   "/api/*",
   "/.well-known/apple-app-site-association",   # LockdIn universal links (AASA inlined in worker.js)
   "/apple-app-site-association",
+  "/.well-known/assetlinks.json",              # LockdIn Android App Links (inlined in worker.js)
   "/lockdin/join/*",                           # join landing page with the invite code injected
 ]
 

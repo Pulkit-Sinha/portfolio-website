@@ -54,9 +54,30 @@ const AASA = JSON.stringify({
   },
 });
 
+// Android App Links for LockdIn (same invite join links). Inlined like the AASA for the same
+// Content-Type / no-redirect reasons. Keep byte-identical to website/assetlinks.json in the LockdIn
+// repo: the Play App Signing key (every Play install) and the upload key (sideloaded release builds).
+const ASSETLINKS = JSON.stringify([{
+  relation: ['delegate_permission/common.handle_all_urls'],
+  target: {
+    namespace: 'android_app',
+    package_name: 'com.sherkit.lockdin',
+    sha256_cert_fingerprints: [
+      'CC:C2:14:86:05:90:D6:2F:CF:C4:9B:E6:92:53:DA:03:39:86:40:61:A3:0B:23:E1:7F:DD:E0:96:57:0E:BA:ED',
+      'E2:F6:55:AD:0A:A4:39:DA:E0:A7:0B:B3:1E:52:21:5E:A8:89:4B:5C:C3:5C:5F:A2:FF:8C:EC:06:E7:8B:61:EB',
+    ],
+  },
+}]);
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/.well-known/assetlinks.json') {
+      return new Response(ASSETLINKS, {
+        headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=3600' },
+      });
+    }
 
     // AASA: served at the well-known path (Apple's primary) and the legacy root path.
     if (url.pathname === '/.well-known/apple-app-site-association' ||

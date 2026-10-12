@@ -59,7 +59,7 @@
 <h1>Your data, <span class="signal">exactly.</span></h1>
 <p class="updated">Effective October 10, 2026</p>
 
-<p>LockdIn is a social-accountability focus app made by Shereen and Pulkit ("we").
+<p>LockdIn is a social-accountability focus app for iPhone and Android made by Shereen and Pulkit ("we").
 This page describes exactly what data the app handles and why. Questions:
 <a href="mailto:aryantopulkit2@gmail.com">aryantopulkit2@gmail.com</a>.</p>
 
@@ -82,11 +82,12 @@ This page describes exactly what data the app handles and why. Questions:
       and camera details) and link it to that session. Photos are taken with the camera only;
       LockdIn never reads your photo library. If you report someone else's photo, we record that
       you reported it.</li>
-  <li><strong>Device push token</strong>: so we can deliver notifications.</li>
+  <li><strong>Device push token</strong>: so we can deliver notifications (an Apple push token on iPhone, a Firebase Cloud Messaging token on Android).</li>
   <li><strong>Timezone</strong>: so streaks and reminders follow your local day.</li>
 </ul>
 
 <h2>Contacts (optional)</h2>
+<p>Contacts, camera and notifications work the same way on iPhone and Android: you are asked first, and nothing happens unless you say yes. On Android, the camera is the phone's own camera app, so LockdIn never gets camera permission.</p>
 <p>If you grant Contacts access to find friends, phone numbers from your address book are sent to
 our server, matched against registered users, and <strong>immediately discarded; we do not store
 your address book</strong>. Contact names never leave your device. If you invite someone, the
@@ -123,7 +124,7 @@ collection beyond what's listed above.</p>
 <h2>Service providers</h2>
 <p>We run on <strong>Supabase</strong> (database, authentication, file storage for session photos, and push infrastructure; data
 stored in Mumbai, India), use <strong>Twilio</strong> to deliver sign-in SMS codes (they process
-your phone number for delivery), and <strong>Apple</strong> to deliver push notifications. This
+your phone number for delivery), <strong>Apple</strong> to deliver push notifications to iPhones, and <strong>Google</strong> (Firebase Cloud Messaging) to deliver push notifications to Android phones. For Android pushes, the notification text (for example "Maya respects your 2h session.") and your device token pass through Google's servers for delivery. The Android app is distributed through <strong>Google Play</strong>, which handles downloads and updates under Google's own policies. This
 website (including invite-link pages) is served by <strong>Cloudflare</strong>, which processes
 standard web request logs. Each processes data only to provide these services.</p>
 
