@@ -57,7 +57,7 @@
 <div class="eyebrow"><span>Privacy policy</span></div>
 
 <h1>Your data, <span class="signal">exactly.</span></h1>
-<p class="updated">Effective October 21, 2026</p>
+<p class="updated">Effective November 7, 2026</p>
 
 <p>LockdIn is a social-accountability focus app for iPhone and Android made by Shereen and Pulkit ("we").
 This page describes exactly what data the app handles and why. Questions:
@@ -69,7 +69,10 @@ This page describes exactly what data the app handles and why. Questions:
       code and to let friends who already have your number find you.</li>
   <li><strong>Name and initials</strong>: what your circle sees.</li>
   <li><strong>Focus activity</strong>: your tasks and the focus domain you tag them with (Fitness, Chores, Work, Study, Hobby or Misc), focus sessions (task, domain, duration,
-      start/end times, whether you finished, quit, or chose not to count it, an optional note), daily focus totals,
+      start/end times, whether you finished, quit, or chose not to count it, an optional note,
+      and, if a session ended because you left the app for another app and stayed away, that
+      you got distracted and, on Android only and only if you allow Usage access, the name of
+      the app you used most while away), daily focus totals,
       streaks, and your <strong>weekly finishes</strong>: when each week ends we save where you
       placed on your circle's leaderboard (for example 2nd of 9), your focus that week, and that
       week's final standings.</li>
@@ -86,8 +89,20 @@ This page describes exactly what data the app handles and why. Questions:
   <li><strong>Timezone</strong>: so streaks and reminders follow your local day.</li>
 </ul>
 
-<h2>Contacts (optional)</h2>
+<h2>Contacts, camera, notifications and Usage access (all optional)</h2>
 <p>Contacts, camera and notifications work the same way on iPhone and Android: you are asked first, and nothing happens unless you say yes. On Android, the camera is the phone's own camera app, so LockdIn never gets camera permission.</p>
+<p><strong>Leaving the app during a session.</strong> Switching to another app in the middle of
+a focus session pauses it; locking your phone does not. (On iPhone this needs a passcode set,
+because that is the only way iOS lets an app tell a lock from a switch; without one, nothing
+changes.) If you stay away long enough that the session ends, it is recorded as a quit because
+you got distracted, and your circle sees that. LockdIn never knows which app you switched to on
+iPhone. On Android you can optionally grant <strong>Usage access</strong> (a setting you turn
+on yourself in Android Settings; the app shows you what it does first and never asks with a
+pop-up). With it on, when a session ends because you stayed away, LockdIn reads which apps were
+on screen during that away period only (from a few seconds before you left until the session
+ended), keeps just the name of the one you used most, and shows it to your circle with that
+quit (for example "quit, distracted by Instagram"). Nothing else about your app usage is read,
+stored or shared, and you can turn it off in Android Settings at any time.</p>
 <p>If you grant Contacts access to find friends, phone numbers from your address book are sent to
 our server, matched against registered users, and <strong>immediately discarded; we do not store
 your address book</strong>. Contact names never leave your device. If you invite someone, the
@@ -99,7 +114,9 @@ involved in the delivery.</p>
 <h2>What others can see</h2>
 <ul>
   <li><strong>Your circle</strong> (people you mutually accept, up to 20) sees your name, your live
-      and past focus sessions (including quits, and sessions you chose not to count, which show
+      and past focus sessions (including quits, whether a quit happened because you left the app
+      and stayed away, and, from Android with Usage access on, the name of the app you were in,
+      and sessions you chose not to count, which show
       in their feed as a note that you didn't count a session), your streaks, completion notes, and your place on
       the shared leaderboard, your weekly finishes (where you placed each week, out of how
       many, and your focus total that week), plus how many Respects and Pokes you've given and received in total
